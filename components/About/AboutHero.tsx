@@ -1,6 +1,6 @@
 const AboutHero = () => {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white pt-[75px]">
       <div className="mx-auto flex min-h-[500px] max-w-[1300px] items-center px-6 py-20 sm:px-8 lg:px-10 lg:py-24">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           {/* Left Content */}

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-[520px] w-full overflow-hidden">
+    <section className="relative min-h-[520px] w-full overflow-hidden pt-[275px]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

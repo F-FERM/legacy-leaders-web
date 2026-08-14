@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ContactLanding = () => {
   return (
-    <section className="w-full bg-[#eef3ff]">
+    <section className="w-full bg-[#eef3ff] pt-[75px]">
       <div className="mx-auto flex min-h-[420px] max-w-[1300px] items-center px-6 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           {/* Left Content */}

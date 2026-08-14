@@ -13,7 +13,7 @@ const ContactLanding = () => {
               Financial Future.
             </h1>
 
-            <p className="mt-4 max-w-[470px] text-[10px] leading-[1.6] text-[#555] sm:text-[11px]">
+            <p className="mt-4 max-w-[470px] text-[18px] leading-[1.6] text-[#555]">
               Connect with our expert accountants today. Whether you need
               comprehensive bookkeeping, tax advisory, or strategic financial
               planning, we&apos;re here to help your business thrive in the UAE.

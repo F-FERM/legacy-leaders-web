@@ -20,7 +20,7 @@ const AboutHero = () => {
             </h1>
 
             {/* Description */}
-            <p className="mt-5 max-w-[520px] text-[11px] leading-[1.6] text-[#555] sm:text-xs">
+            <p className="mt-5 max-w-[520px] text-[18px] leading-[1.6] text-[#555] sm:text-m">
               Legacy Leaders LLC is a professional accounting and bookkeeping
               firm based in the UAE, dedicated to helping businesses achieve
               financial clarity, maintain compliance, and drive sustainable

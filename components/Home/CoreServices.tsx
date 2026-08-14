@@ -138,7 +138,7 @@ const CoreServices = () => {
                 {/* Title */}
                 <h3
                   className="
-                    text-[15px]
+                    text-[25px]
                     font-bold
                     leading-tight
                     text-[#14243a]
@@ -158,7 +158,7 @@ const CoreServices = () => {
                       className="
                         flex
                         items-start
-                        text-[10px]
+                        text-[18px]
                         leading-[1.45]
                         text-[#555]
                         transition-colors

@@ -16,7 +16,7 @@ const HomeAboutSection = () => {
             </h2>
 
             {/* Main Description */}
-            <p className="mt-2.5 text-[13px] font-semibold leading-[1.55] text-[#252525] sm:text-sm">
+            <p className="mt-2.5 text-[18px] font-semibold leading-[1.55] text-[#252525] sm:text-m">
               Legacy Leaders LLC is a professional accounting and bookkeeping
               firm based in the UAE, dedicated to helping businesses achieve
               financial clarity, maintain compliance, and drive sustainable
@@ -24,7 +24,7 @@ const HomeAboutSection = () => {
             </p>
 
             {/* Paragraph 2 */}
-            <p className="mt-2.5 text-[11px] leading-[1.65] text-[#555] sm:text-xs">
+            <p className="mt-2.5 text-[16px] leading-[1.65] text-[#555] sm:text-s">
               We provide reliable accounting, taxation, and business support
               services tailored to startups, SMEs, and established enterprises
               across various industries. Our experienced professionals ensure
@@ -33,7 +33,7 @@ const HomeAboutSection = () => {
             </p>
 
             {/* Paragraph 3 */}
-            <p className="mt-2.5 text-[11px] leading-[1.65] text-[#555] sm:text-xs">
+            <p className="mt-2.5 text-[16px] leading-[1.65] text-[#555] sm:text-s">
               Our mission is to simplify financial management so business owners
               can focus on growing their business with confidence.
             </p>

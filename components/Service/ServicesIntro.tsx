@@ -8,7 +8,7 @@ const ServicesIntro = () => {
         </h1>
 
         {/* Description */}
-        <p className="mt-3 max-w-[500px] text-[11px] leading-[1.6] text-[#555] sm:text-xs">
+        <p className="mt-3 max-w-[500px] text-[18px] leading-[1.6] text-[#555] ">
           Comprehensive financial solutions tailored for precision, compliance,
           and growth in the UAE.
         </p>

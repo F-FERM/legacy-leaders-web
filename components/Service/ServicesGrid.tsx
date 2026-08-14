@@ -188,14 +188,13 @@ const ServicesGrid = () => {
                   {/* Title */}
                   <h3
                     className="
-                      text-[17px]
+                      text-[18px]
                       font-bold
                       leading-[1.25]
                       text-[#14243a]
                       transition-colors
                       duration-300
                       group-hover:text-white
-                      sm:text-[18px]
                     "
                   >
                     {service.title}
@@ -209,13 +208,12 @@ const ServicesGrid = () => {
                         className="
                           flex
                           items-start
-                          text-[10px]
+                          text-[15px]
                           leading-[1.45]
                           text-[#555]
                           transition-colors
                           duration-300
                           group-hover:text-white
-                          sm:text-[11px]
                         "
                       >
                         <span

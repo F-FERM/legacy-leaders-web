@@ -32,11 +32,11 @@ const VisionMissionSection = () => {
             </div>
 
             <div className="relative z-10 max-w-[330px]">
-              <h2 className="font-serif text-[19px] font-bold text-white sm:text-[20px]">
+              <h2 className="font-serif text-[23px] font-bold text-white sm:text-[20px]">
                 Our Vision
               </h2>
 
-              <p className="mt-2 text-[10px] leading-[1.7] text-white/75 sm:text-[11px]">
+              <p className="mt-2 text-[18px] leading-[1.7] text-white/75 sm:text-[18px]">
                 To become one of the UAE&apos;s most trusted accounting and tax
                 advisory firms by delivering reliable, transparent, and
                 innovative financial solutions.
@@ -46,7 +46,7 @@ const VisionMissionSection = () => {
 
           {/* Mission */}
           <div className="min-h-[175px] rounded-[6px] border border-[#d7dce5] bg-[#f8f9ff] px-7 py-5 sm:px-8">
-            <h2 className="font-serif text-[19px] font-bold text-[#14243a] sm:text-[20px]">
+            <h2 className="font-serif text-[23px] font-bold text-[#14243a] sm:text-[20px]">
               Our Mission
             </h2>
 
@@ -66,7 +66,7 @@ const VisionMissionSection = () => {
                     </div>
 
                     {/* Text */}
-                    <p className="pt-[1px] text-[9px] leading-[1.55] text-[#555] sm:text-[10px]">
+                    <p className="pt-[1px] text-[16px] leading-[1.55] text-[#555] sm:text-[15px]">
                       {item.text}
                     </p>
                   </div>

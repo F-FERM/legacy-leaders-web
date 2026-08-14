@@ -55,7 +55,7 @@ const ContactFormSection = () => {
                 Legacy Leaders LLC
               </h3>
 
-              <p className="mt-0.5 text-[13px] text-[#555]">
+              <p className="mt-0.5 text-[16px] text-[#555]">
                 Accounting &amp; Bookkeeping Firm
               </p>
             </div>
@@ -71,12 +71,12 @@ const ContactFormSection = () => {
                 />
 
                 <div>
-                  <p className="text-[12px] font-semibold text-[#14243a]">
+                  <p className="text-[16px] font-semibold text-[#14243a]">
                     Email
                   </p>
 
-                  <p className="mt-0.5 text-[13px] text-[#333]">
-                    legacyleaders9@gmail.com
+                  <p className="mt-0.5 text-[18px] text-[#333]">
+                    info@legacyleadersuae.com
                   </p>
                 </div>
               </div>
@@ -90,12 +90,12 @@ const ContactFormSection = () => {
                 />
 
                 <div>
-                  <p className="text-[12px] font-semibold text-[#14243a]">
+                  <p className="text-[16px] font-semibold text-[#14243a]">
                     Mobile
                   </p>
 
-                  <p className="mt-0.5 text-[13px] text-[#555]">
-                    +971 XXXXXXXXXX
+                  <p className="mt-0.5 text-[18px] text-[#555]">
+                    +971 58119 2017
                   </p>
                 </div>
               </div>
@@ -109,11 +109,11 @@ const ContactFormSection = () => {
                 />
 
                 <div>
-                  <p className="text-[12px] font-semibold text-[#14243a]">
+                  <p className="text-[16px] font-semibold text-[#14243a]">
                     Office
                   </p>
 
-                  <p className="mt-0.5 text-[13px] text-[#555]">
+                  <p className="mt-0.5 text-[18px] text-[#555]">
                     Dubai, United Arab Emirates
                   </p>
                 </div>
@@ -126,7 +126,7 @@ const ContactFormSection = () => {
           ===================================================== */}
           <div className="rounded-[15px] border border-[#d5d9e1] bg-[#f7f8fd] p-5 sm:p-6">
             {/* Heading */}
-            <h2 className="font-serif text-[24px] font-bold text-[#14243a] sm:text-[25px]">
+            <h2 className="font-serif text-[24px] font-bold text-[#14243a]">
               Send Us a Message
             </h2>
 
@@ -136,7 +136,7 @@ const ContactFormSection = () => {
                 <div>
                   <label
                     htmlFor="firstName"
-                    className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                    className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                   >
                     First Name
                   </label>
@@ -153,7 +153,7 @@ const ContactFormSection = () => {
                 <div>
                   <label
                     htmlFor="lastName"
-                    className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                    className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                   >
                     Last Name
                   </label>
@@ -173,7 +173,7 @@ const ContactFormSection = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                    className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                   >
                     Email Address
                   </label>
@@ -190,7 +190,7 @@ const ContactFormSection = () => {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                    className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                   >
                     Phone Number
                   </label>
@@ -208,7 +208,7 @@ const ContactFormSection = () => {
               <div className="mt-4">
                 <label
                   htmlFor="industry"
-                  className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                  className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                 >
                   Industry
                 </label>
@@ -217,7 +217,7 @@ const ContactFormSection = () => {
                   id="industry"
                   name="industry"
                   defaultValue=""
-                  className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
+                  className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[15px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                 >
                   <option value="" disabled>
                     Select Industry...
@@ -235,7 +235,7 @@ const ContactFormSection = () => {
               <div className="mt-4">
                 <label
                   htmlFor="message"
-                  className="mb-1.5 block text-[10px] font-medium text-[#14243a]"
+                  className="mb-1.5 block text-[15px] font-medium text-[#14243a]"
                 >
                   Message
                 </label>

@@ -56,7 +56,6 @@ const BlogLanding = () => {
               font-bold
               leading-tight
               text-[#14243a]
-              sm:text-[30px]
               lg:text-[32px]
             "
           >
@@ -158,7 +157,7 @@ const BlogLanding = () => {
                     bg-[#9a7a3a]
                     px-2
                     py-1
-                    text-[7px]
+                    text-[11px]
                     font-semibold
                     text-white
                   "
@@ -187,10 +186,9 @@ const BlogLanding = () => {
                   className="
                     mt-1.5
                     max-w-[620px]
-                    text-[8px]
+                    text-[13px]
                     leading-[1.5]
                     text-white/80
-                    sm:text-[9px]
                   "
                 >
                   {featuredPost.description}
@@ -234,7 +232,7 @@ const BlogLanding = () => {
                   {/* Category */}
                   <span
                     className="
-                      text-[7px]
+                      text-[11px]
                       font-semibold
                       uppercase
                       tracking-[0.08em]
@@ -248,7 +246,7 @@ const BlogLanding = () => {
                   <h2
                     className="
                       mt-1
-                      text-[14px]
+                      text-[18px]
                       font-bold
                       leading-[1.15]
                       text-[#14243a]
@@ -264,7 +262,7 @@ const BlogLanding = () => {
                   <p
                     className="
                       mt-1.5
-                      text-[8px]
+                      text-[13px]
                       leading-[1.4]
                       text-[#666]
                     "

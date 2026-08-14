@@ -61,20 +61,20 @@ const RecentArticles = () => {
               <div className="px-3 pb-3 pt-3">
                 {/* Category + Date */}
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-[8px] font-bold uppercase tracking-[0.08em] text-[#9a7a3a]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#9a7a3a]">
                     {article.category}
                   </span>
 
-                  <span className="text-[8px] text-[#555]">{article.date}</span>
+                  <span className="text-[10px] text-[#555]">{article.date}</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-2 text-[17px] font-bold leading-[1.2] text-[#14243a]">
+                <h3 className="mt-2 text-[18px] font-bold leading-[1.2] text-[#14243a]">
                   {article.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-1.5 min-h-[43px] text-[10px] leading-[1.45] text-[#666]">
+                <p className="mt-1.5 min-h-[43px] text-[16px] leading-[1.45] text-[#666]">
                   {article.description}
                 </p>
 

@@ -25,7 +25,7 @@ export default function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="mt-4 max-w-[580px] text-[13px] leading-6 text-white/85 sm:text-sm">
+          <p className="mt-4 max-w-[580px] text-[18px] leading-6 text-white/85 sm:text-sm">
             Professional Accounting &amp; Bookkeeping Firm dedicated to helping
             businesses achieve financial clarity, maintain compliance, and drive
             sustainable growth in the UAE.

@@ -16,7 +16,7 @@ const Footer = () => {
               />
             </Link>
 
-            <p className="mt-3 max-w-[280px] text-[11px] leading-[1.55] text-white/75">
+            <p className="mt-3 max-w-[280px] text-[18px] leading-[1.55] text-white/75">
               Your trusted partner for professional accounting and bookkeeping
               services in the UAE.
             </p>
@@ -24,7 +24,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-[11px] font-semibold text-white">
+            <h3 className="text-[18px] font-semibold text-white">
               Quick Links
             </h3>
 
@@ -32,7 +32,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Home
                 </Link>
@@ -41,7 +41,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   About
                 </Link>
@@ -50,7 +50,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Service
                 </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Blog
                 </Link>
@@ -69,13 +69,13 @@ const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-[11px] font-semibold text-white">Resources</h3>
+            <h3 className="text-[18px] font-semibold text-white">Resources</h3>
 
             <ul className="mt-2.5 space-y-1.5">
               <li>
                 <Link
                   href="/vat-guide"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   VAT Guide
                 </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/corporate-tax"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Corporate Tax
                 </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/careers"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Careers
                 </Link>
@@ -103,13 +103,13 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h3 className="text-[11px] font-semibold text-white">Links</h3>
+            <h3 className="text-[18px] font-semibold text-white">Links</h3>
 
             <ul className="mt-2.5 space-y-1.5">
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Privacy Policy
                 </Link>
@@ -118,7 +118,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/terms-of-service"
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-[16px] text-white/65 transition-colors hover:text-white"
                 >
                   Terms of Service
                 </Link>
@@ -129,7 +129,7 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="relative mt-7 border-t border-white/10 pt-3">
-          <p className="text-[9px] text-white/45">
+          <p className="text-[15px] text-white/45">
             © 2024 Legacy Leaders LLC. Professional Accounting & Bookkeeping
             Services in the UAE.
           </p>

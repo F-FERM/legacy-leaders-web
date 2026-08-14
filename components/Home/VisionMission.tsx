@@ -32,12 +32,12 @@ const VisionMission = () => {
             </div>
 
             {/* Title */}
-            <h3 className="font-serif text-[13px] font-bold text-[#101010]">
+            <h3 className="font-serif text-[24px] font-bold text-[#101010]">
               Vision
             </h3>
 
             {/* Description */}
-            <p className="mt-1.5 max-w-[500px] text-[10px] leading-[1.5] text-[#555] sm:text-[10px]">
+            <p className="mt-1.5 max-w-[500px] text-[18px] leading-[1.5] text-[#555] sm:text-[18px]">
               To become one of the UAE&apos;s most trusted accounting and tax
               advisory firms by delivering reliable, transparent, and innovative
               financial solutions.
@@ -72,25 +72,25 @@ const VisionMission = () => {
             </div>
 
             {/* Title */}
-            <h3 className="font-serif text-[13px] font-bold text-white">
+            <h3 className="font-serif text-[24px] font-bold text-white">
               Mission
             </h3>
 
             {/* Mission List */}
             <ul className="mt-1.5 space-y-1">
-              <li className="flex items-start gap-1.5 text-[10px] leading-[1.5] text-white/85">
+              <li className="flex items-start gap-1.5 text-[18px] leading-[1.5] text-white/85">
                 <span className="mt-[2px] shrink-0 text-[#f5d78e]">⊙</span>
                 <span>Deliver accurate and timely accounting services.</span>
               </li>
 
-              <li className="flex items-start gap-1.5 text-[10px] leading-[1.5] text-white/85">
+              <li className="flex items-start gap-1.5 text-[18px] leading-[1.5] text-white/85">
                 <span className="mt-[2px] shrink-0 text-[#f5d78e]">⊙</span>
                 <span>
                   Help businesses remain fully compliant with UAE regulations.
                 </span>
               </li>
 
-              <li className="flex items-start gap-1.5 text-[10px] leading-[1.5] text-white/85">
+              <li className="flex items-start gap-1.5 text-[18px] leading-[1.5] text-white/85">
                 <span className="mt-[2px] shrink-0 text-[#f5d78e]">⊙</span>
                 <span>
                   Build long-term relationships through integrity and
@@ -98,7 +98,7 @@ const VisionMission = () => {
                 </span>
               </li>
 
-              <li className="flex items-start gap-1.5 text-[10px] leading-[1.5] text-white/85">
+              <li className="flex items-start gap-1.5 text-[18px] leading-[1.5] text-white/85">
                 <span className="mt-[2px] shrink-0 text-[#f5d78e]">⊙</span>
                 <span>
                   Support business growth with practical financial advice.

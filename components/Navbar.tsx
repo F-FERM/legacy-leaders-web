@@ -31,11 +31,19 @@ export const Navbar = () => {
         top-0
         z-[1000]
         w-full
+
+        /* Desktop Glass */
+        bg-[#3C3C3C47]
+
+        /* Mobile Navbar Background */
+        max-[820px]:bg-[#0a1628]/95
+
         border-b
         border-white/10
-        bg-[#3C3C3C47]
+
         backdrop-blur-xl
         backdrop-saturate-150
+
         shadow-[0_4px_30px_rgba(0,0,0,0.15)]
       "
     >
@@ -51,6 +59,9 @@ export const Navbar = () => {
           items-center
           justify-between
           px-8
+
+          max-[820px]:h-[70px]
+
           max-[480px]:h-[65px]
           max-[480px]:px-4
         "
@@ -67,6 +78,7 @@ export const Navbar = () => {
                 h-[45px]
                 w-auto
                 object-contain
+
                 max-[820px]:h-[35px]
                 max-[480px]:h-[30px]
               "
@@ -104,10 +116,12 @@ export const Navbar = () => {
                       isActive
                         ? `
                           !text-[#003896]
+
                           after:absolute
                           after:bottom-0
                           after:left-4
                           after:right-4
+
                           after:h-[2px]
                           after:rounded-full
                           after:bg-[#003896]
@@ -136,13 +150,17 @@ export const Navbar = () => {
               group
               inline-flex
               rounded-full
+
               bg-gradient-to-r
               from-white
               via-[#0F2256]
               to-[#022764]
+
               p-[1px]
+
               transition-all
               duration-300
+
               hover:shadow-[0_0_20px_rgba(15,34,86,0.35)]
             "
           >
@@ -153,14 +171,19 @@ export const Navbar = () => {
                 items-center
                 justify-center
                 rounded-full
+
                 bg-[#3C3C3C47]
+
                 px-7
                 py-2.5
+
                 text-sm
                 font-semibold
                 !text-white
+
                 transition-all
                 duration-300
+
                 group-hover:bg-[#0F225638]
               "
             >
@@ -181,8 +204,9 @@ export const Navbar = () => {
             hidden
             flex-col
             gap-[5px]
-            bg-transparent
-            p-1.5
+            rounded-md
+            p-2
+
             max-[820px]:flex
           "
         >
@@ -193,8 +217,10 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
+
               transition-all
               duration-300
+
               ${isOpen ? "translate-y-[7.5px] rotate-45" : ""}
             `}
           />
@@ -206,8 +232,10 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
+
               transition-all
               duration-300
+
               ${isOpen ? "opacity-0" : "opacity-100"}
             `}
           />
@@ -219,8 +247,10 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
+
               transition-all
               duration-300
+
               ${isOpen ? "-translate-y-[7.5px] -rotate-45" : ""}
             `}
           />
@@ -234,15 +264,22 @@ export const Navbar = () => {
         className={`
           fixed
           left-0
-          top-[75px]
+          top-[70px]
           w-full
+
           border-b
           border-white/10
-          bg-[#3C3C3C47]
+
+          /* Mobile glass background */
+          bg-[#0a1628]/95
+
           p-6
+
           backdrop-blur-xl
           backdrop-saturate-150
-          shadow-[0_8px_30px_rgba(0,0,0,0.15)]
+
+          shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+
           transition-transform
           duration-300
 
@@ -264,10 +301,13 @@ export const Navbar = () => {
                   className={`
                     relative
                     block
+
                     px-4
                     py-3
+
                     text-lg
                     font-medium
+
                     transition-all
                     duration-300
 
@@ -275,10 +315,12 @@ export const Navbar = () => {
                       isActive
                         ? `
                           !text-[#003896]
+
                           after:absolute
                           after:bottom-1
                           after:left-4
                           after:right-4
+
                           after:h-[2px]
                           after:rounded-full
                           after:bg-[#003896]
@@ -307,10 +349,12 @@ export const Navbar = () => {
                 group
                 inline-flex
                 rounded-full
+
                 bg-gradient-to-r
                 from-white
                 via-[#0F2256]
                 to-[#022764]
+
                 p-[1px]
               "
             >
@@ -320,15 +364,21 @@ export const Navbar = () => {
                   min-w-[118px]
                   items-center
                   justify-center
+
                   rounded-full
-                  bg-[#3C3C3C47]
+
+                  bg-[#0a1628]
+
                   px-7
                   py-2.5
+
                   text-sm
                   font-semibold
                   !text-white
+
                   transition-all
                   duration-300
+
                   group-hover:bg-[#0F225638]
                 "
               >

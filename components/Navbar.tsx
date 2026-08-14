@@ -1,23 +1,27 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -27,14 +31,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-container">
-        <Link href="/" className="nav-logo">
-          <div className="logo-wrapper">
+    <nav
+      className={`fixed left-0 top-0 z-[1000] w-full py-2 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0a1628]/95 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[75px] max-w-[1300px] items-center justify-between px-8 max-[480px]:h-[65px] max-[480px]:px-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <div className="flex items-center gap-3">
             <img
               src="/logo.png"
               alt="Legacy Leaders"
-              className="logo-img"
+              className="h-[45px] w-auto object-contain max-[820px]:h-[35px] max-[480px]:h-[30px]"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
@@ -43,303 +54,104 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="nav-links">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={pathname === link.href ? "active" : ""}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
+        <ul className="flex items-center gap-10 max-[820px]:hidden">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`border-b-2 border-transparent py-2 text-[15px] font-medium tracking-wide !text-white transition-all duration-300 hover:!text-white ${
+                    isActive
+                      ? "border-b-[#f5d78e] !text-white"
+                      : "hover:border-b-white/60"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Contact Button */}
-        <div className="nav-contact">
-          <Link href="/contact" className="contact-btn">
+        <div className="max-[820px]:hidden">
+          <Link
+            href="/contact"
+            className="inline-flex rounded-full bg-gradient-to-br from-[#f5d78e] to-[#e8c16a] px-8 py-2.5 text-sm font-semibold !text-[#0a1628] shadow-[0_4px_15px_rgba(245,215,142,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(245,215,142,0.4)]"
+          >
             Contact
           </Link>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className={`hamburger ${isOpen ? "active" : ""}`}
+          type="button"
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          className="hidden flex-col gap-[5px] bg-transparent p-1.5 max-[820px]:flex"
         >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+          <span
+            className={`h-[2.5px] w-7 rounded-full bg-white transition-all duration-300 ${
+              isOpen ? "translate-y-[7.5px] rotate-45" : ""
+            }`}
+          />
+
+          <span
+            className={`h-[2.5px] w-7 rounded-full bg-white transition-all duration-300 ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+
+          <span
+            className={`h-[2.5px] w-7 rounded-full bg-white transition-all duration-300 ${
+              isOpen ? "-translate-y-[7.5px] -rotate-45" : ""
+            }`}
+          />
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
-        <ul className="mobile-links">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={pathname === link.href ? "active" : ""}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-          <li className="mobile-contact">
-            <Link href="/contact" onClick={() => setIsOpen(false)}>
+      <div
+        className={`fixed left-0 top-[75px] w-full border-b border-white/5 bg-[#0a1628]/95 p-8 backdrop-blur-xl transition-transform duration-300 max-[480px]:top-[65px] max-[480px]:p-6 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <ul className="flex flex-col gap-6">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-medium !text-white transition-all duration-300 ${
+                    isActive
+                      ? "!text-[#f5d78e]"
+                      : "opacity-90 hover:!text-white hover:opacity-100"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
+
+          {/* Mobile Contact */}
+          <li className="mt-2">
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="inline-block rounded-full bg-gradient-to-br from-[#f5d78e] to-[#e8c16a] px-8 py-2.5 font-semibold !text-[#0a1628]"
+            >
               Contact
             </Link>
           </li>
         </ul>
       </div>
-
-      <style jsx>{`
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background: transparent;
-          transition: all 0.3s ease;
-          z-index: 1000;
-          padding: 0.5rem 0;
-        }
-
-        .navbar.scrolled {
-          background: rgba(10, 31, 51, 0.85);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-          max-width: 1300px;
-          margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          height: 75px;
-        }
-
-        /* Logo */
-        .nav-logo {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-        }
-
-        .logo-wrapper {
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-        }
-
-        .logo-img {
-          height: 45px;
-          width: auto;
-          object-fit: contain;
-        }
-
-        .brand-text {
-          display: flex;
-          flex-direction: column;
-          line-height: 1.1;
-        }
-
-        .brand-main {
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: #fff;
-          letter-spacing: 0.05em;
-          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .brand-sub {
-          font-size: 0.6rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.8);
-          letter-spacing: 0.08em;
-          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Desktop Navigation */
-        .nav-links {
-          display: flex;
-          list-style: none;
-          gap: 2.5rem;
-          align-items: center;
-        }
-
-        .nav-links li a {
-          color: rgba(255, 255, 255, 0.8);
-          text-decoration: none;
-          font-weight: 500;
-          font-size: 0.95rem;
-          letter-spacing: 0.03em;
-          transition: all 0.3s ease;
-          padding: 0.5rem 0;
-          border-bottom: 2px solid transparent;
-          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-links li a:hover {
-          color: #fff;
-          border-bottom-color: rgba(255, 215, 120, 0.6);
-        }
-
-        .nav-links li a.active {
-          color: #fff;
-          border-bottom-color: #f5d78e;
-        }
-
-        /* Contact Button */
-        .contact-btn {
-          background: linear-gradient(135deg, #f5d78e, #e8c16a);
-          color: #0a1f33 !important;
-          padding: 0.6rem 2rem;
-          border-radius: 50px;
-          font-weight: 600;
-          font-size: 0.9rem;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(245, 215, 142, 0.3);
-          text-shadow: none !important;
-        }
-
-        .contact-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(245, 215, 142, 0.4);
-        }
-
-        /* Hamburger */
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          padding: 0.3rem;
-        }
-
-        .hamburger .bar {
-          width: 28px;
-          height: 2.5px;
-          background: #fff;
-          border-radius: 4px;
-          transition: all 0.3s ease;
-        }
-
-        .hamburger.active .bar:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active .bar:nth-child(2) {
-          opacity: 0;
-        }
-        .hamburger.active .bar:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-          position: fixed;
-          top: 75px;
-          left: 0;
-          width: 100%;
-          background: rgba(10, 31, 51, 0.95);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          padding: 2rem;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .mobile-menu.open {
-          transform: translateX(0);
-        }
-
-        .mobile-links {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-
-        .mobile-links li a {
-          color: #fff;
-          font-size: 1.2rem;
-          font-weight: 500;
-          opacity: 0.8;
-          transition: opacity 0.3s ease;
-        }
-
-        .mobile-links li a:hover,
-        .mobile-links li a.active {
-          opacity: 1;
-        }
-
-        .mobile-contact {
-          margin-top: 0.5rem;
-        }
-
-        .mobile-contact a {
-          display: inline-block;
-          background: linear-gradient(135deg, #f5d78e, #e8c16a);
-          color: #0a1f33 !important;
-          padding: 0.6rem 2rem;
-          border-radius: 50px;
-          font-weight: 600;
-        }
-
-        /* Responsive */
-        @media (max-width: 820px) {
-          .nav-links {
-            display: none;
-          }
-          .nav-contact {
-            display: none;
-          }
-          .hamburger {
-            display: flex;
-          }
-          .brand-main {
-            font-size: 0.9rem;
-          }
-          .brand-sub {
-            font-size: 0.5rem;
-          }
-          .logo-img {
-            height: 35px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .nav-container {
-            padding: 0 1rem;
-            height: 65px;
-          }
-          .brand-main {
-            font-size: 0.75rem;
-          }
-          .brand-sub {
-            font-size: 0.45rem;
-          }
-          .logo-img {
-            height: 30px;
-          }
-          .mobile-menu {
-            top: 65px;
-            padding: 1.5rem;
-          }
-        }
-      `}</style>
     </nav>
   );
 };
-
-export default Navbar;

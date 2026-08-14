@@ -8,7 +8,7 @@ const AboutUsSection = () => {
         </h2>
 
         {/* Content */}
-        <div className="mx-auto mt-2 max-w-[1160px] text-[10px] leading-[1.55] text-[#555] sm:text-[11px]">
+        <div className="mx-auto mt-2 max-w-[1000px] text-[10px] leading-[1.55] text-[#555] sm:text-[11px]">
           <p>
             We provide reliable accounting, taxation, and business support
             services tailored to startups, SMEs, and established enterprises

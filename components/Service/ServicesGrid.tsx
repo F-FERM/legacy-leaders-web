@@ -11,6 +11,7 @@ const services = [
   {
     title: "Accounting & Bookkeeping",
     icon: Calculator,
+    image: "/accounting.jpg",
     items: [
       "Daily bookkeeping",
       "General ledger maintenance",
@@ -23,6 +24,7 @@ const services = [
   {
     title: "Corporate Tax Services",
     icon: Building2,
+    image: "/tax.jpg",
     items: [
       "Corporate Tax Registration",
       "Corporate Tax Return Filing",
@@ -34,6 +36,7 @@ const services = [
   {
     title: "VAT Services",
     icon: FileBarChart,
+    image: "/vat.jpg",
     items: [
       "Corporate Tax Registration",
       "VAT Registration",
@@ -46,6 +49,7 @@ const services = [
   {
     title: "Financial Reporting",
     icon: ChartNoAxesColumn,
+    image: "/financial-reporting.jpg",
     items: [
       "Profit & Loss Statement",
       "Balance Sheet",
@@ -57,6 +61,7 @@ const services = [
   {
     title: "AML Compliance Services",
     icon: ShieldCheck,
+    image: "/financial-reporting.jpg",
     items: [
       "AML Policy Preparation",
       "Risk Assessment",
@@ -68,6 +73,7 @@ const services = [
   {
     title: "Business Advisory",
     icon: HandCoins,
+    image: "/financial-reporting.jpg",
     items: [
       "Financial Analysis",
       "Business Planning",
@@ -89,31 +95,147 @@ const ServicesGrid = () => {
             return (
               <div
                 key={service.title}
-                className="min-h-[220px] rounded-[2px] border border-[#d7dbe2] bg-white px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:px-5 sm:py-4"
+                className="
+                  group
+                  relative
+                  min-h-[220px]
+                  overflow-hidden
+                  rounded-[2px]
+                  border
+                  border-[#d7dbe2]
+                  bg-white
+                  px-4
+                  py-4
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-transparent
+                  hover:shadow-lg
+                  sm:px-5
+                  sm:py-4
+                "
               >
-                {/* Icon */}
-                <div className="mb-3 flex h-[29px] w-[29px] items-center justify-center rounded-[7px] bg-[#e8f0ff]">
-                  <Icon size={14} strokeWidth={2} className="text-[#0f1d32]" />
+                {/* =================================================
+                    Service Background Image
+                ================================================= */}
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    z-0
+                    bg-cover
+                    bg-center
+                    opacity-0
+                    scale-100
+                    transition-all
+                    duration-500
+                    group-hover:scale-105
+                    group-hover:opacity-100
+                  "
+                  style={{
+                    backgroundImage: `url(${service.image})`,
+                  }}
+                />
+
+                {/* =================================================
+                    Dark Overlay
+                ================================================= */}
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    z-[1]
+                    bg-[#071b35]/75
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                />
+
+                {/* =================================================
+                    Card Content
+                ================================================= */}
+                <div className="relative z-[2]">
+                  {/* Icon */}
+                  <div
+                    className="
+                      mb-3
+                      flex
+                      h-[29px]
+                      w-[29px]
+                      items-center
+                      justify-center
+                      rounded-[7px]
+                      bg-[#e8f0ff]
+                      transition-all
+                      duration-300
+                      group-hover:bg-white
+                    "
+                  >
+                    <Icon
+                      size={14}
+                      strokeWidth={2}
+                      className="
+                        text-[#0f1d32]
+                        transition-colors
+                        duration-300
+                        group-hover:text-[#003896]
+                      "
+                    />
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className="
+                      text-[17px]
+                      font-bold
+                      leading-[1.25]
+                      text-[#14243a]
+                      transition-colors
+                      duration-300
+                      group-hover:text-white
+                      sm:text-[18px]
+                    "
+                  >
+                    {service.title}
+                  </h3>
+
+                  {/* Items */}
+                  <ul className="mt-4 space-y-[5px]">
+                    {service.items.map((item) => (
+                      <li
+                        key={item}
+                        className="
+                          flex
+                          items-start
+                          text-[10px]
+                          leading-[1.45]
+                          text-[#555]
+                          transition-colors
+                          duration-300
+                          group-hover:text-white
+                          sm:text-[11px]
+                        "
+                      >
+                        <span
+                          className="
+                            mr-1.5
+                            shrink-0
+                            text-[#967532]
+                            transition-colors
+                            duration-300
+                            group-hover:text-[#f5d78e]
+                          "
+                        >
+                          ✓
+                        </span>
+
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-[17px] font-bold leading-[1.25] text-[#14243a] sm:text-[18px]">
-                  {service.title}
-                </h3>
-
-                {/* Items */}
-                <ul className="mt-4 space-y-[5px]">
-                  {service.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start text-[10px] leading-[1.45] text-[#555] sm:text-[11px]"
-                    >
-                      <span className="mr-1.5 shrink-0 text-[#967532]">✓</span>
-
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             );
           })}

@@ -29,7 +29,7 @@ const sidePosts = [
 
 const BlogLanding = () => {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white pt-[75px]">
       {/* =========================================================
           BLOG HEADER
       ========================================================= */}

@@ -2,6 +2,7 @@ const services = [
   {
     title: "Accounting & Bookkeeping",
     icon: "▰",
+    image: "/accounting.jpg",
     items: [
       "Daily bookkeeping",
       "General ledger maintenance",
@@ -14,6 +15,7 @@ const services = [
   {
     title: "Corporate Tax Services",
     icon: "▣",
+    image: "/tax.jpg",
     items: [
       "Corporate Tax Registration",
       "Corporate Tax Return Filing",
@@ -25,6 +27,7 @@ const services = [
   {
     title: "VAT Services",
     icon: "▣",
+    image: "/vat.jpg",
     items: [
       "Corporate Tax Registration",
       "VAT Registration",
@@ -50,30 +53,136 @@ const CoreServices = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="min-h-[176px] rounded-[2px] border border-[#d9dce2] bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:p-4"
+              className="
+                group
+                relative
+                min-h-[176px]
+                overflow-hidden
+                rounded-[2px]
+                border
+                border-[#d9dce2]
+                bg-white
+                p-3
+                transition-all
+                duration-500
+                hover:-translate-y-1
+                hover:border-transparent
+                hover:shadow-lg
+                sm:p-4
+              "
             >
-              {/* Icon */}
-              <div className="mb-3 flex h-[24px] w-[24px] items-center justify-center rounded-[5px] bg-[#eaf0ff] text-[10px] font-bold text-[#0a1628]">
-                {service.icon}
+              {/* ================================================
+                  Individual Service Background Image
+              ================================================= */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  z-0
+                  bg-cover
+                  bg-center
+                  opacity-0
+                  transition-all
+                  duration-500
+                  group-hover:opacity-100
+                  group-hover:scale-105
+                "
+                style={{
+                  backgroundImage: `url(${service.image})`,
+                }}
+              />
+
+              {/* ================================================
+                  Dark Overlay
+              ================================================= */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  z-[1]
+                  bg-[#071b35]/75
+                  opacity-0
+                  transition-opacity
+                  duration-500
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* ================================================
+                  Card Content
+              ================================================= */}
+              <div className="relative z-[2]">
+                {/* Icon */}
+                <div
+                  className="
+                    mb-3
+                    flex
+                    h-[24px]
+                    w-[24px]
+                    items-center
+                    justify-center
+                    rounded-[5px]
+                    bg-[#eaf0ff]
+                    text-[10px]
+                    font-bold
+                    text-[#0a1628]
+                    transition-all
+                    duration-300
+                    group-hover:bg-white
+                    group-hover:text-[#003896]
+                  "
+                >
+                  {service.icon}
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="
+                    text-[15px]
+                    font-bold
+                    leading-tight
+                    text-[#14243a]
+                    transition-colors
+                    duration-300
+                    group-hover:text-[#003896]
+                  "
+                >
+                  {service.title}
+                </h3>
+
+                {/* Service List */}
+                <ul className="mt-2.5 space-y-[3px]">
+                  {service.items.map((item) => (
+                    <li
+                      key={item}
+                      className="
+                        flex
+                        items-start
+                        text-[10px]
+                        leading-[1.45]
+                        text-[#555]
+                        transition-colors
+                        duration-300
+                        group-hover:text-white
+                      "
+                    >
+                      <span
+                        className="
+                          mr-1
+                          text-[#9a7a3a]
+                          transition-colors
+                          duration-300
+                          group-hover:text-[#f5d78e]
+                        "
+                      >
+                        ✓
+                      </span>
+
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Service Title */}
-              <h3 className="text-[15px] font-bold leading-tight text-[#14243a]">
-                {service.title}
-              </h3>
-
-              {/* Service List */}
-              <ul className="mt-2.5 space-y-[3px]">
-                {service.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start text-[10px] leading-[1.45] text-[#555]"
-                  >
-                    <span className="mr-1 text-[#9a7a3a]">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

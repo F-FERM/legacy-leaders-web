@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Building2,
   Calculator,
@@ -100,7 +102,7 @@ const ServicesGrid = () => {
                   relative
                   min-h-[220px]
                   overflow-hidden
-                  rounded-[30px]
+                  rounded-[16px]
                   shadow-md
                   border
                   border-[#d7dbe2]
@@ -108,16 +110,17 @@ const ServicesGrid = () => {
                   px-4
                   py-4
                   transition-all
-                  duration-300
-                  hover:-translate-y-1
+                  duration-500
+                  hover:-translate-y-2
                   hover:border-transparent
-                  hover:shadow-lg
+                  hover:shadow-xl
                   sm:px-5
                   sm:py-4
+                  cursor-pointer
                 "
               >
                 {/* =================================================
-                    Service Background Image
+                    Background Image (Hidden initially, shows on hover)
                 ================================================= */}
                 <div
                   className="
@@ -126,12 +129,13 @@ const ServicesGrid = () => {
                     z-0
                     bg-cover
                     bg-center
+                    scale-105
                     opacity-0
-                    scale-100
                     transition-all
-                    duration-500
-                    group-hover:scale-105
+                    duration-700
+                    ease-out
                     group-hover:opacity-100
+                    group-hover:scale-110
                   "
                   style={{
                     backgroundImage: `url(${service.image})`,
@@ -139,17 +143,20 @@ const ServicesGrid = () => {
                 />
 
                 {/* =================================================
-                    Dark Overlay
+                    Dark Overlay (Hidden initially, shows on hover)
                 ================================================= */}
                 <div
                   className="
                     absolute
                     inset-0
                     z-[1]
-                    bg-[#071b35]/75
+                    bg-gradient-to-b
+                    from-[#071b35]/80
+                    to-[#071b35]/90
                     opacity-0
                     transition-opacity
                     duration-500
+                    ease-in-out
                     group-hover:opacity-100
                   "
                 />
@@ -158,52 +165,54 @@ const ServicesGrid = () => {
                     Card Content
                 ================================================= */}
                 <div className="relative z-[2]">
-                  {/* Icon */}
+                  {/* ── Icon ────────────────────────────────────────── */}
                   <div
                     className="
                       mb-3
                       flex
-                      h-[29px]
-                      w-[29px]
+                      h-[40px]
+                      w-[40px]
                       items-center
                       justify-center
-                      rounded-[7px]
+                      rounded-[10px]
                       bg-[#e8f0ff]
                       transition-all
-                      duration-300
-                      group-hover:bg-white
+                      duration-400
+                      group-hover:scale-125
+                      group-hover:shadow-lg
                     "
                   >
                     <Icon
-                      size={14}
+                      size={20}
                       strokeWidth={2}
                       className="
                         text-[#0f1d32]
-                        transition-colors
-                        duration-300
-                        group-hover:text-[#003896]
+                        transition-all
+                        duration-400
+                        group-hover:text-[#3B78C2]
+                        group-hover:scale-110
                       "
                     />
                   </div>
 
-                  {/* Title */}
+                  {/* ── Title ───────────────────────────────────────── */}
                   <h3
                     className="
-                      text-[18px]
+                      text-[20px]
                       font-bold
                       leading-[1.25]
                       text-[#14243a]
-                      transition-colors
-                      duration-300
-                      group-hover:text-white
+                      transition-all
+                      duration-400
+                      group-hover:text-[#3B78C2]
                       font-serif-custom
                     "
                   >
                     {service.title}
                   </h3>
 
-                  {/* Items */}
-                  <ul className="mt-4 space-y-[5px]">
+                  {/* ── Items ───────────────────────────────────────── */}
+                  <ul className="mt-4 space-y-[6px]">
                     {service.items.map((item) => (
                       <li
                         key={item}
@@ -211,21 +220,23 @@ const ServicesGrid = () => {
                           flex
                           items-start
                           text-[15px]
-                          leading-[1.45]
+                          leading-[1.5]
                           text-[#555]
-                          transition-colors
-                          duration-300
-                          group-hover:text-white
+                          transition-all
+                          duration-400
+                          group-hover:text-white/90
                         "
                       >
                         <span
                           className="
-                            mr-1.5
+                            mr-2
                             shrink-0
                             text-[#967532]
-                            transition-colors
-                            duration-300
+                            font-bold
+                            transition-all
+                            duration-400
                             group-hover:text-[#f5d78e]
+                            group-hover:scale-110
                           "
                         >
                           ✓
@@ -235,6 +246,44 @@ const ServicesGrid = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* ── Hover Arrow Indicator ──────────────────────── */}
+                  <div
+                    className="
+                      absolute
+                      bottom-0
+                      right-0
+                      flex
+                      h-8
+                      w-8
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-white/20
+                      text-white
+                      opacity-0
+                      transition-all
+                      duration-400
+                      group-hover:opacity-100
+                      group-hover:translate-x-0
+                      translate-x-4
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      className="h-4 w-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             );

@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Home/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -46,6 +47,8 @@ export default function RootLayout({
         <main className="flex min-h-screen flex-col">{children}</main>
 
         <Footer />
+
+         <WhatsAppButton />
       </body>
     </html>
   );

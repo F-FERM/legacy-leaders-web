@@ -58,7 +58,8 @@ const CoreServices = () => {
                 relative
                 min-h-[176px]
                 overflow-hidden
-                rounded-[2px]
+                rounded-[30px]
+                shadow-md
                 border
                 border-[#d9dce2]
                 bg-white

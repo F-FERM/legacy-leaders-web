@@ -100,7 +100,8 @@ const ServicesGrid = () => {
                   relative
                   min-h-[220px]
                   overflow-hidden
-                  rounded-[2px]
+                  rounded-[30px]
+                  shadow-md
                   border
                   border-[#d7dbe2]
                   bg-white

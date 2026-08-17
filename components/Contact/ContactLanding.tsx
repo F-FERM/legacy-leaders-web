@@ -7,7 +7,7 @@ const ContactLanding = () => {
         <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           {/* Left Content */}
           <div className="max-w-[540px]">
-            <h1 className="font-serif-custom text-[36px] font-bold leading-[1.2] tracking-[-0.02em] text-black sm:text-[42px] lg:text-[44px]">
+            <h1 className="font-serif-custom' text-[36px] font-bold leading-[1.2] tracking-[-0.02em] text-black sm:text-[42px] lg:text-[44px]">
               Let&apos;s Discuss Your
               <br />
               Financial Future.

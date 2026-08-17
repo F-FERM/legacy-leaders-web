@@ -49,7 +49,7 @@ const services = [
   {
     title: "Financial Reporting",
     icon: ChartNoAxesColumn,
-    image: "/financial-reporting.jpg",
+    image: "/finance.jpg",
     items: [
       "Profit & Loss Statement",
       "Balance Sheet",
@@ -61,7 +61,7 @@ const services = [
   {
     title: "AML Compliance Services",
     icon: ShieldCheck,
-    image: "/financial-reporting.jpg",
+    image: "/aml.jpg",
     items: [
       "AML Policy Preparation",
       "Risk Assessment",
@@ -73,7 +73,7 @@ const services = [
   {
     title: "Business Advisory",
     icon: HandCoins,
-    image: "/financial-reporting.jpg",
+    image: "/business.jpg",
     items: [
       "Financial Analysis",
       "Business Planning",

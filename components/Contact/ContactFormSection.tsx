@@ -95,7 +95,7 @@ const ContactFormSection = () => {
                   </p>
 
                   <p className="mt-0.5 text-[18px] text-[#555]">
-                    +971 58119 2017
+                    +971 50300 1882
                   </p>
                 </div>
               </div>

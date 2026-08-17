@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Swal from "sweetalert2";
 
 const industries = [
   "Accounting & Finance",
@@ -15,23 +16,99 @@ const industries = [
   "Other",
 ];
 
+const WHATSAPP_NUMBER = "971503001882";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  industry: string;
+  message: string;
+}
+
 const ContactFormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    industry: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    // Connect your API here
-    // await fetch("/api/contact", {
-    //   method: "POST",
-    //   body: JSON.stringify(...)
-    // });
+    try {
+      // ── Format WhatsApp Message ──────────────────────────────────
+      const message = `
+*New Contact Form Submission*
 
-    setTimeout(() => {
+👤 *Name:* ${formData.firstName} ${formData.lastName}
+📧 *Email:* ${formData.email}
+📱 *Phone:* ${formData.phone || "Not provided"}
+🏢 *Industry:* ${formData.industry || "Not specified"}
+
+💬 *Message:*
+${formData.message}
+
+---
+Sent from Legacy Leaders LLC Website
+      `.trim();
+
+      // ── Encode for URL ────────────────────────────────────────────
+      const encodedMessage = encodeURIComponent(message);
+
+      // ── Open WhatsApp ─────────────────────────────────────────────
+      window.open(`${WHATSAPP_URL}?text=${encodedMessage}`, "_blank");
+
+      // ── Reset Form ────────────────────────────────────────────────
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        industry: "",
+        message: "",
+      });
+
+      // ── Success Alert with SweetAlert2 ──────────────────────────
+      await Swal.fire({
+        icon: "success",
+        title: "Message Sent! ✅",
+        text: "Your inquiry has been sent via WhatsApp. We'll get back to you shortly!",
+        confirmButtonColor: "#8a6b2f",
+        confirmButtonText: "Great!",
+        timer: 4000,
+        timerProgressBar: true,
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+
+      // ── Error Alert with SweetAlert2 ────────────────────────────
+      await Swal.fire({
+        icon: "error",
+        title: "Oops! Something went wrong",
+        text: "There was an error sending your message. Please try again or contact us directly.",
+        confirmButtonColor: "#8a6b2f",
+        confirmButtonText: "Try Again",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -95,7 +172,12 @@ const ContactFormSection = () => {
                   </p>
 
                   <p className="mt-0.5 text-[18px] text-[#555]">
-                    +971 50300 1882
+                    <a
+                      href={`tel:+${WHATSAPP_NUMBER}`}
+                      className="hover:text-[#8a6b2f] transition-colors"
+                    >
+                      +971 50300 1882
+                    </a>
                   </p>
                 </div>
               </div>
@@ -146,6 +228,8 @@ const ContactFormSection = () => {
                     name="firstName"
                     type="text"
                     required
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                   />
                 </div>
@@ -163,6 +247,8 @@ const ContactFormSection = () => {
                     name="lastName"
                     type="text"
                     required
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                   />
                 </div>
@@ -183,6 +269,8 @@ const ContactFormSection = () => {
                     name="email"
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                   />
                 </div>
@@ -199,6 +287,8 @@ const ContactFormSection = () => {
                     id="phone"
                     name="phone"
                     type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                   />
                 </div>
@@ -216,12 +306,11 @@ const ContactFormSection = () => {
                 <select
                   id="industry"
                   name="industry"
-                  defaultValue=""
+                  value={formData.industry}
+                  onChange={handleChange}
                   className="h-[38px] w-full rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 text-[15px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                 >
-                  <option value="" disabled>
-                    Select Industry...
-                  </option>
+                  <option value="">Select Industry...</option>
 
                   {industries.map((industry) => (
                     <option key={industry} value={industry}>
@@ -245,6 +334,8 @@ const ContactFormSection = () => {
                   name="message"
                   required
                   rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full resize-none rounded-[3px] border border-[#cfd4dd] bg-transparent px-3 py-2.5 text-[11px] text-[#14243a] outline-none transition focus:border-[#8a6b2f] focus:ring-1 focus:ring-[#8a6b2f]/20"
                 />
               </div>
@@ -253,9 +344,9 @@ const ContactFormSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-4 h-[34px] rounded-[6px] bg-black px-6 text-[10px] font-medium text-white transition-all duration-300 hover:bg-[#14243a] disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-4 h-[34px] rounded-[6px] bg-black px-6 text-[10px] font-medium text-white transition-all duration-300 hover:bg-[#14243a] hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                {isSubmitting ? "Sending..." : "Submit Inquiry"}
               </button>
             </form>
           </div>

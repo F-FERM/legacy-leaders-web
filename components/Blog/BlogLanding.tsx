@@ -57,6 +57,7 @@ const BlogLanding = () => {
               leading-tight
               text-[#14243a]
               lg:text-[32px]
+              font-serif-custom
             "
           >
             Insights &amp; Updates

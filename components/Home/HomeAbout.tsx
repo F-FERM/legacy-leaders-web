@@ -11,7 +11,7 @@ const HomeAboutSection = () => {
             </p>
 
             {/* Heading */}
-            <h2 className="font-serif text-[34px] font-bold leading-tight text-[#0a1628] sm:text-[38px] lg:text-[40px]">
+            <h2 className="font-serif-custom text-[34px] font-bold leading-tight text-[#0a1628] sm:text-[38px] lg:text-[40px]">
               About Us
             </h2>
 

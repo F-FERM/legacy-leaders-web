@@ -11,7 +11,7 @@ const AboutHero = () => {
             </p>
 
             {/* Heading */}
-            <h1 className="font-serif text-[40px] font-bold leading-[1.12] tracking-[-0.02em] text-black sm:text-[46px] lg:text-[48px]">
+            <h1 className="font-serif-custom text-[40px] font-bold leading-[1.12] tracking-[-0.02em] text-black sm:text-[46px] lg:text-[48px]">
               Your Numbers.
               <br />
               Our Commitment.

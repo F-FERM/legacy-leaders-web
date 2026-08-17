@@ -32,7 +32,7 @@ const VisionMission = () => {
             </div>
 
             {/* Title */}
-            <h3 className="font-serif text-[24px] font-bold text-[#101010]">
+            <h3 className="font-serif-custom text-[24px] font-bold text-[#101010]">
               Vision
             </h3>
 
@@ -72,7 +72,7 @@ const VisionMission = () => {
             </div>
 
             {/* Title */}
-            <h3 className="font-serif text-[24px] font-bold text-white">
+            <h3 className="font-serif-custom text-[24px] font-bold text-white">
               Mission
             </h3>
 

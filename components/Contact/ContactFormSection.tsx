@@ -43,7 +43,7 @@ const ContactFormSection = () => {
           ===================================================== */}
           <div className="min-h-[480px] rounded-[15px] border border-[#d5d9e1] bg-[#f7f8fd] p-5 sm:p-6">
             {/* Heading */}
-            <h2 className="font-serif text-[24px] font-bold text-[#14243a] sm:text-[25px]">
+            <h2 className="font-serif-custom text-[24px] font-bold text-[#14243a] sm:text-[25px]">
               Contact Us
             </h2>
 
@@ -126,7 +126,7 @@ const ContactFormSection = () => {
           ===================================================== */}
           <div className="rounded-[15px] border border-[#d5d9e1] bg-[#f7f8fd] p-5 sm:p-6">
             {/* Heading */}
-            <h2 className="font-serif text-[24px] font-bold text-[#14243a]">
+            <h2 className="font-serif-custom text-[24px] font-bold text-[#14243a]">
               Send Us a Message
             </h2>
 

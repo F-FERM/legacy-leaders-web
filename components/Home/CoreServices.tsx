@@ -44,7 +44,7 @@ const CoreServices = () => {
     <section className="w-full bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
         {/* Section Heading */}
-        <h2 className="font-serif text-[28px] font-bold leading-tight text-[#0a1628] sm:text-[32px]">
+        <h2 className="font-serif-custom text-[28px] font-bold leading-tight text-[#0a1628] sm:text-[32px]">
           Core Services
         </h2>
 

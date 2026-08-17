@@ -195,6 +195,7 @@ const ServicesGrid = () => {
                       transition-colors
                       duration-300
                       group-hover:text-white
+                      font-serif-custom
                     "
                   >
                     {service.title}

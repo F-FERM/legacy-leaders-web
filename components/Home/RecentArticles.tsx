@@ -35,7 +35,7 @@ const RecentArticles = () => {
     <section className="w-full bg-white py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
         {/* Section Heading */}
-        <h2 className="font-serif text-[30px] font-bold leading-tight text-[#14243a] sm:text-[32px] lg:text-[34px]">
+        <h2 className="font-serif-custom text-[30px] font-bold leading-tight text-[#14243a] sm:text-[32px] lg:text-[34px]">
           Recent Articles
         </h2>
 

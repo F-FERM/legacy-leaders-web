@@ -3,7 +3,7 @@ const AboutUsSection = () => {
     <section className="w-full bg-[#eef3ff] py-10 sm:py-12 lg:py-14">
       <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
         {/* Heading */}
-        <h2 className="text-center font-serif text-[28px] font-bold leading-tight text-[#14243a] sm:text-[30px]">
+        <h2 className="text-center font-serif-custom text-[28px] font-bold leading-tight text-[#14243a] sm:text-[30px]">
           About Us
         </h2>
 

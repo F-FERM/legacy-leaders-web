@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 sm:px-8 lg:px-10">
         <div className="max-w-[620px] pb-5">
           {/* Heading */}
-          <h1 className="font-serif text-4xl font-bold leading-[1.15] text-white sm:text-5xl lg:text-[48px]">
+          <h1 className="font-serif-custom text-4xl font-bold leading-[1.15] text-white sm:text-5xl lg:text-[48px]">
             Your Numbers. Our
             <br />
             Commitment. Your

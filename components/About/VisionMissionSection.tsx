@@ -32,7 +32,7 @@ const VisionMissionSection = () => {
             </div>
 
             <div className="relative z-10 max-w-[330px]">
-              <h2 className="font-serif text-[23px] font-bold text-white sm:text-[20px]">
+              <h2 className="font-serif-custom text-[23px] font-bold text-white sm:text-[20px]">
                 Our Vision
               </h2>
 
@@ -46,7 +46,7 @@ const VisionMissionSection = () => {
 
           {/* Mission */}
           <div className="min-h-[175px] rounded-[6px] border border-[#d7dce5] bg-[#f8f9ff] px-7 py-5 sm:px-8">
-            <h2 className="font-serif text-[23px] font-bold text-[#14243a] sm:text-[20px]">
+            <h2 className="font-serif-custom text-[23px] font-bold text-[#14243a] sm:text-[20px]">
               Our Mission
             </h2>
 

@@ -33,7 +33,7 @@ export const Navbar = () => {
         w-full
 
         /* Desktop Glass */
-        bg-[#3C3C3C47]
+        bg-[#b4acac47]
 
         /* Mobile Navbar Background */
         max-[820px]:bg-[#0a1628]/95
@@ -67,21 +67,25 @@ export const Navbar = () => {
         "
       >
         {/* =======================================================
-            LOGO
+            LOGO - Moved to the left
         ======================================================= */}
-        <Link href="/" onClick={closeMenu} className="flex items-center">
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="flex items-center -ml-6 max-[820px]:-ml-0"
+        >
           <div className="flex items-center gap-3">
             <img
               src="/logo.png"
               alt="Legacy Leaders"
               className="
-                h-[45px]
-                w-auto
-                object-contain
+        h-[60px]
+        w-auto
+        object-contain
 
-                max-[820px]:h-[35px]
-                max-[480px]:h-[30px]
-              "
+        max-[820px]:h-[50px]
+        max-[480px]:h-[45px]
+      "
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
@@ -90,7 +94,7 @@ export const Navbar = () => {
         </Link>
 
         {/* =======================================================
-            DESKTOP NAVIGATION
+            DESKTOP NAVIGATION - Keeping current position
         ======================================================= */}
         <ul className="flex items-center gap-5 max-[820px]:hidden">
           {navLinks.map((link) => {
@@ -391,3 +395,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;

@@ -1,7 +1,7 @@
 export default function WhyLegacyLeaders() {
   return (
     <section className="w-full bg-[#EFF4FF] py-8 sm:py-10 lg:py-12">
-      <div className="mx-auto max-w-[1065px] px-5 sm:px-6 lg:px-0">
+      <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
         {/* =========================================================
             SECTION HEADING
         ========================================================= */}

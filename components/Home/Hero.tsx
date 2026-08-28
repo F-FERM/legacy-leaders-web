@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <section className="relative min-h-[520px] w-full overflow-hidden pt-[275px]">
-      {/* Background Image */}
+      {/* Background Image with Gradient */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -9,8 +9,14 @@ export default function Hero() {
         }}
       />
 
-      {/* Dark Blue Overlay */}
-      <div className="absolute inset-0 bg-[#071b2f]/75" />
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0%, rgba(69, 148, 255, 0.58) 100%)",
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 sm:px-8 lg:px-10">
@@ -35,7 +41,7 @@ export default function Hero() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex h-10 min-w-[121px] items-center justify-center rounded-md bg-[#0047ab] px-6 text-xs font-semibold text-white transition hover:bg-[#0058d0]"
+              className="inline-flex h-10 min-w-[121px] items-center justify-center rounded-md bg-[#003896] px-6 text-xs font-semibold text-white transition hover:bg-[#0F2256]"
             >
               Get Started
             </a>

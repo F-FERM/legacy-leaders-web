@@ -1,3 +1,4 @@
+import ContactFormSection from "@/components/Home/ContactSection";
 import CoreServices from "@/components/Home/CoreServices";
 import Hero from "@/components/Home/Hero";
 import HomeAboutSection from "@/components/Home/HomeAbout";
@@ -17,6 +18,7 @@ const Home = () => {
       <WhyLegacyLeaders />
       <IndustriesSection />
       <RecentArticles />
+      <ContactFormSection />
     </main>
   );
 };

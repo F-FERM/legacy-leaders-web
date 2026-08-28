@@ -1,6 +1,7 @@
 import CoreServices from "@/components/Home/CoreServices";
 import Hero from "@/components/Home/Hero";
 import HomeAboutSection from "@/components/Home/HomeAbout";
+import IndustriesSection from "@/components/Home/IndustriesSection";
 import RecentArticles from "@/components/Home/RecentArticles";
 import VisionMission from "@/components/Home/VisionMission";
 import WhyLegacyLeaders from "@/components/Home/WhyLegacyLeaders";
@@ -14,6 +15,7 @@ const Home = () => {
       <VisionMission />
       <CoreServices />
       <WhyLegacyLeaders />
+      <IndustriesSection />
       <RecentArticles />
     </main>
   );

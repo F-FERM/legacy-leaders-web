@@ -136,9 +136,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Background Decorative Text */}
-      <div className="pointer-events-none absolute bottom-[-32px] left-1/2 -translate-x-1/2 whitespace-nowrap select-none">
-        <span className="font-serif text-[80px] font-bold tracking-[-0.04em] text-white/[0.06] sm:text-[110px] lg:text-[125px]">
+      {/* Background Decorative Text - FIXED */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 select-none overflow-hidden w-full">
+        <span className="block text-center font-serif text-[40px] font-bold tracking-[-0.04em] text-white/[0.06] sm:text-[60px] md:text-[80px] lg:text-[110px] xl:text-[125px] leading-[1.2] pb-2">
           LEGACY LEADERS
         </span>
       </div>

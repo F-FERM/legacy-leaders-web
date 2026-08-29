@@ -32,11 +32,8 @@ export const Navbar = () => {
         z-[1000]
         w-full
 
-        /* Desktop Glass */
+        /* Glass effect for all screen sizes */
         bg-[#b4acac47]
-
-        /* Mobile Navbar Background */
-        max-[820px]:bg-[#0a1628]/95
 
         border-b
         border-white/10
@@ -274,10 +271,8 @@ export const Navbar = () => {
           border-b
           border-white/10
 
-          /* Mobile glass background */
-          bg-[#0a1628]/95
-
-          p-6
+          /* Same glass effect as desktop */
+          bg-[#b4acac47]
 
           backdrop-blur-xl
           backdrop-saturate-150
@@ -288,109 +283,111 @@ export const Navbar = () => {
           duration-300
 
           max-[480px]:top-[65px]
-          max-[480px]:p-5
 
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        <ul className="flex flex-col gap-2">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+        {/* Semi-transparent dark overlay for better readability */}
+        <div className="p-6 max-[480px]:p-5 bg-[#0a1628]/60">
+          <ul className="flex flex-col gap-2">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
 
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={closeMenu}
-                  className={`
-                    relative
-                    block
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={closeMenu}
+                    className={`
+                      relative
+                      block
 
-                    px-4
-                    py-3
+                      px-4
+                      py-3
 
-                    text-lg
-                    font-medium
+                      text-lg
+                      font-medium
+
+                      transition-all
+                      duration-300
+
+                      ${
+                        isActive
+                          ? `
+                            !text-[#003896]
+
+                            after:absolute
+                            after:bottom-1
+                            after:left-4
+                            after:right-4
+
+                            after:h-[2px]
+                            after:rounded-full
+                            after:bg-[#003896]
+                          `
+                          : `
+                            !text-white
+                            hover:!text-[#003896]
+                          `
+                      }
+                    `}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
+
+            {/* =====================================================
+                MOBILE CONTACT
+            ===================================================== */}
+            <li className="mt-4">
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="
+                  group
+                  inline-flex
+                  rounded-full
+
+                  bg-gradient-to-r
+                  from-white
+                  via-[#0F2256]
+                  to-[#022764]
+
+                  p-[1px]
+                "
+              >
+                <span
+                  className="
+                    inline-flex
+                    min-w-[118px]
+                    items-center
+                    justify-center
+
+                    rounded-full
+
+                    bg-[#0a1628]
+
+                    px-7
+                    py-2.5
+
+                    text-sm
+                    font-semibold
+                    !text-white
 
                     transition-all
                     duration-300
 
-                    ${
-                      isActive
-                        ? `
-                          !text-[#003896]
-
-                          after:absolute
-                          after:bottom-1
-                          after:left-4
-                          after:right-4
-
-                          after:h-[2px]
-                          after:rounded-full
-                          after:bg-[#003896]
-                        `
-                        : `
-                          !text-white
-                          hover:!text-[#003896]
-                        `
-                    }
-                  `}
+                    group-hover:bg-[#0F225638]
+                  "
                 >
-                  {link.name}
-                </Link>
-              </li>
-            );
-          })}
-
-          {/* =====================================================
-              MOBILE CONTACT
-          ===================================================== */}
-          <li className="mt-4">
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              className="
-                group
-                inline-flex
-                rounded-full
-
-                bg-gradient-to-r
-                from-white
-                via-[#0F2256]
-                to-[#022764]
-
-                p-[1px]
-              "
-            >
-              <span
-                className="
-                  inline-flex
-                  min-w-[118px]
-                  items-center
-                  justify-center
-
-                  rounded-full
-
-                  bg-[#0a1628]
-
-                  px-7
-                  py-2.5
-
-                  text-sm
-                  font-semibold
-                  !text-white
-
-                  transition-all
-                  duration-300
-
-                  group-hover:bg-[#0F225638]
-                "
-              >
-                Contact
-              </span>
-            </Link>
-          </li>
-        </ul>
+                  Contact
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

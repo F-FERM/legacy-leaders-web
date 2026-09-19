@@ -5,8 +5,8 @@ const AboutHero = () => {
         className="
           mx-auto
           flex
-          min-h-[430px]
-          max-w-[1300px]
+          min-h-[560px]
+          max-w-[1500px]
           items-center
           px-6
           py-12
@@ -25,8 +25,8 @@ const AboutHero = () => {
             items-center
             gap-10
 
-            lg:grid-cols-[0.95fr_1.05fr]
-            lg:gap-14
+            lg:grid-cols-[minmax(0,1fr)_719px]
+            lg:gap-[40px]
           "
         >
           {/* =========================================================
@@ -34,9 +34,8 @@ const AboutHero = () => {
           ========================================================= */}
           <div
             className="
-              max-w-[520px]
-
-              lg:max-w-[500px]
+              w-full
+              max-w-[720px]
             "
           >
             {/* =======================================================
@@ -44,14 +43,16 @@ const AboutHero = () => {
             ======================================================= */}
             <p
               className="
-                mb-4
-                text-[8px]
+                mb-5
+                text-[10px]
                 font-semibold
                 uppercase
                 tracking-[0.2em]
                 text-[#003896]
 
-                sm:text-[9px]
+                sm:text-[11px]
+
+                lg:text-[11px]
               "
             >
               About Legacy Leaders LLC
@@ -62,23 +63,31 @@ const AboutHero = () => {
             ======================================================= */}
             <h1
               className="
-                font-serif-custom
-                text-[38px]
-                font-bold
-                leading-[1.32]
-                tracking-[-0.02em]
+                text-[42px]
+                font-semibold
+                leading-[1.2]
+                tracking-[-0.96px]
                 text-black
 
-                sm:text-[44px]
+                sm:text-[52px]
+                sm:leading-[1.2]
 
-                lg:text-[46px]
+                md:text-[60px]
+                md:leading-[1.25]
+
+                lg:text-[70px]
+                lg:leading-[98px]
               "
             >
-              Building Financial
-              <br />
-              Clarity. Supporting
-              <br />
-              Business Growth.
+              <span className="block whitespace-nowrap">
+                Building Financial
+              </span>
+
+              <span className="block whitespace-nowrap">
+                Clarity. Supporting
+              </span>
+
+              <span className="block whitespace-nowrap">Business Growth.</span>
             </h1>
 
             {/* =======================================================
@@ -86,17 +95,19 @@ const AboutHero = () => {
             ======================================================= */}
             <p
               className="
-                mt-5
-                max-w-[500px]
-                text-[12px]
-                leading-[1.55]
+                mt-6
+                max-w-[600px]
+                text-[16px]
+                font-normal
+                leading-[25.6px]
+                tracking-normal
                 text-[#555]
 
-                sm:text-[13px]
+                sm:text-[17px]
+                sm:leading-[27px]
 
-                lg:max-w-[510px]
-                lg:text-[12px]
-                lg:leading-[1.55]
+                lg:text-[18px]
+                lg:leading-[28px]
               "
             >
               Legacy Leaders LLC is a professional accounting and bookkeeping
@@ -109,28 +120,38 @@ const AboutHero = () => {
           {/* =========================================================
               RIGHT IMAGE
           ========================================================= */}
-          <div className="w-full">
+          <div
+            className="
+              flex
+              w-full
+              justify-center
+
+              lg:justify-end
+            "
+          >
             <div
               className="
+                h-auto
                 w-full
+                max-w-[719px]
                 overflow-hidden
-                rounded-[14px]
+                rounded-[30px]
+                p-[10px]
 
-                lg:rounded-[14px]
+                lg:h-[467.69px]
+                lg:w-[719px]
+                lg:max-w-[719px]
               "
             >
               <img
                 src="/about-hero.jpg"
                 alt="Legacy Leaders professional accounting team"
                 className="
-                  h-[280px]
+                  h-full
                   w-full
+                  rounded-[20px]
                   object-cover
                   object-center
-
-                  sm:h-[320px]
-
-                  lg:h-[316px]
                 "
               />
             </div>

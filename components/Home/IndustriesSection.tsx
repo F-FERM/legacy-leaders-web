@@ -14,8 +14,17 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-8 sm:py-10 lg:py-12">
-      <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-[80px]">
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-[1300px]
+          px-6
+          sm:px-8
+          lg:px-10
+        "
+      >
         {/* =========================================================
             SECTION HEADING
         ========================================================= */}
@@ -36,12 +45,12 @@ export default function IndustriesSection() {
           {/* Heading */}
           <h2
             className="
-              mt-1
-              font-serif-custom
+              mt-2
               text-[30px]
               font-bold
-              leading-[1.15]
-              text-[#0a1628]
+              leading-[1.2]
+              tracking-[-0.5px]
+              text-[#0A1628]
 
               sm:text-[34px]
 
@@ -54,16 +63,13 @@ export default function IndustriesSection() {
           {/* Description */}
           <p
             className="
-              mt-1.5
-              max-w-[620px]
-              text-[14px]
-              leading-[1.5]
-              text-[#555]
-
-              sm:text-[13px]
-
-              lg:text-[16px]
-              lg:leading-5
+              mt-2
+              max-w-[800px]
+              text-[18px]
+              font-normal
+              leading-[25.6px]
+              tracking-[0px]
+              text-[#555555]
             "
           >
             Our services are tailored to the needs of businesses across diverse
@@ -76,49 +82,61 @@ export default function IndustriesSection() {
         ========================================================= */}
         <div
           className="
-            mt-4
+            mt-6
             flex
+            max-w-[1100px]
             flex-wrap
             items-center
             gap-[10px]
           "
         >
-          {industries.map((industry) => (
-            <span
-              key={industry}
-              className="
-                inline-flex
-                h-[60px]
-                items-center
-                justify-center
+          {industries.map((industry, index) => {
+            const isActive = "";
 
-                rounded-[30px]
+            return (
+              <span
+                key={industry}
+                className={`
+                  inline-flex
+                  h-[36px]
+                  items-center
+                  justify-center
+                  whitespace-nowrap
+                  rounded-full
+                  border
+                  px-[17px]
 
-                border
-                border-[#B8B8B8]
+                  text-[13px]
+                  font-medium
+                  leading-none
+                  tracking-[0px]
 
-                bg-white
+                  transition-all
+                  duration-300
 
-                px-[27px]
-                py-4
+                  ${
+                    isActive
+                      ? `
+                        border-[#003896]
+                        bg-[#EFF4FF]
+                        text-[#003896]
+                      `
+                      : `
+                        border-[#4A4A4A]
+                        bg-white
+                        text-[#333333]
 
-                text-[12px]
-                font-medium
-                leading-none
-                text-[#333]
-
-                transition-all
-                duration-300
-
-                hover:border-[#003896]
-                hover:bg-[#003896]
-                hover:text-white
-                hover:shadow-sm
-              "
-            >
-              {industry}
-            </span>
-          ))}
+                        hover:border-[#003896]
+                        hover:bg-[#003896]
+                        hover:text-white
+                      `
+                  }
+                `}
+              >
+                {industry}
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>

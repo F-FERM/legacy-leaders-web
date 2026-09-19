@@ -1,19 +1,17 @@
-import { IBM_Plex_Serif } from "next/font/google";
-
-const ibmPlexSerif = IBM_Plex_Serif({
-  subsets: ["latin"],
-  weight: ["600"],
-  style: ["normal"],
-});
-
 export default function Hero() {
   return (
-    <section className="relative min-h-[520px] w-full overflow-hidden pt-[310px]">
+    <section className="relative min-h-screen w-full overflow-hidden">
       {/* =========================================================
           BACKGROUND IMAGE
       ========================================================= */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+          bg-no-repeat
+        "
         style={{
           backgroundImage: "url('/hero.jpg')",
         }}
@@ -21,16 +19,13 @@ export default function Hero() {
 
       {/* =========================================================
           GRADIENT OVERLAY
-          
-          Starts below the desktop navbar so the navbar area
-          remains clean and shows the original hero image.
       ========================================================= */}
       <div
         className="
           absolute
           left-0
           right-0
-          top-[75px]
+          top-[115px]
           bottom-0
 
           max-[820px]:top-[70px]
@@ -38,19 +33,40 @@ export default function Hero() {
         "
         style={{
           background:
-            "linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0%, rgba(69, 148, 255, 0.58) 100%)",
+            "linear-gradient(180deg, rgba(0, 0, 0, 0.102) 0%, rgba(2, 39, 100, 0.6) 100%)",
         }}
       />
 
       {/* =========================================================
-          CONTENT
+          HERO CONTENT
       ========================================================= */}
-      <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-5 sm:px-8 lg:px-10">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          flex
+          min-h-screen
+          w-full
+          max-w-[1600px]
+          items-center
+          justify-center
+          px-5
+          pb-16
+          pt-[115px]
+
+          sm:px-8
+          sm:pt-[100px]
+
+          lg:px-10
+          lg:pt-[115px]
+        "
+      >
         <div
           className="
             flex
             w-full
-            max-w-[1100px]
+            max-w-[1250px]
             flex-col
             items-center
             justify-center
@@ -64,27 +80,28 @@ export default function Hero() {
               HEADING
           ===================================================== */}
           <h1
-            className={`
-    ${ibmPlexSerif.className}
+            className="
+              w-full
+              text-center
+              font-semibold
+              text-white
 
-    w-full
-    font-semibold
-    text-white
-    text-center
+              text-[34px]
+              leading-[1.25]
+              tracking-[-0.8px]
 
-    text-[34px]
-    leading-[48px]
-    tracking-[-0.7px]
+              sm:text-[44px]
+              sm:leading-[1.35]
 
-    sm:text-[44px]
-    sm:leading-[62px]
+              md:text-[52px]
+              md:leading-[1.35]
 
-    md:text-[52px]
-    md:leading-[73px]
+              lg:text-[62px]
+              lg:leading-[1.4]
+              lg:tracking-[-1.2px]
 
-    lg:text-[62px]
-    lg:leading-[87px]
-  `}
+              xl:text-[64px]
+            "
           >
             Your Numbers. Our Commitment.
             <br />
@@ -98,25 +115,28 @@ export default function Hero() {
             className="
               mt-4
               w-full
-              max-w-[1000px]
-              text-[11px]
+              max-w-[1100px]
+              text-center
               font-normal
-              leading-[1.55]
               text-white/90
 
+              text-[11px]
+              leading-[1.6]
+
               sm:text-xs
+              sm:leading-[1.7]
 
               md:text-sm
+              md:leading-6
 
-              lg:text-[14px]
-              lg:leading-6
+              lg:text-[15px]
+              lg:leading-7
             "
           >
-            Professional accounting, bookkeeping, taxation and business support
-            services designed to help businesses achieve financial
+            Professional accounting, bookkeeping, taxation, and business support
+            services designed to help businesses achieve financial clarity,
             <br className="hidden sm:block" />
-            clarity, maintain compliance, and drive sustainable growth in the
-            UAE.
+            maintain compliance, and drive sustainable growth in the UAE.
           </p>
 
           {/* =====================================================
@@ -124,37 +144,48 @@ export default function Hero() {
           ===================================================== */}
           <div
             className="
-              mt-5
+              mt-7
               flex
               items-center
               justify-center
               gap-3
+
+              sm:mt-8
 
               max-[480px]:mt-5
               max-[480px]:w-full
               max-[480px]:gap-2
             "
           >
-            {/* Get Started */}
+            {/* ===================================================
+                GET STARTED
+            =================================================== */}
             <a
               href="#contact"
               className="
                 inline-flex
-                h-10
-                min-w-[121px]
+                h-[52px]
+                min-w-[196px]
                 items-center
                 justify-center
-                rounded-md
+                rounded-[8px]
                 bg-[#003896]
-                px-6
-                text-xs
+                px-8
+                text-[15px]
                 font-semibold
+                tracking-[0.2px]
                 text-white
+
                 transition-all
                 duration-300
 
                 hover:bg-[#0F2256]
-                hover:shadow-[0_6px_20px_rgba(0,56,150,0.35)]
+                hover:shadow-[0_8px_25px_rgba(0,56,150,0.4)]
+
+                max-[820px]:h-11
+                max-[820px]:min-w-[165px]
+                max-[820px]:px-6
+                max-[820px]:text-sm
 
                 max-[480px]:h-9
                 max-[480px]:min-w-[115px]
@@ -165,28 +196,37 @@ export default function Hero() {
               Get Started
             </a>
 
-            {/* Learn More */}
+            {/* ===================================================
+                LEARN MORE
+            =================================================== */}
             <a
               href="#about"
               className="
                 inline-flex
-                h-10
-                min-w-[121px]
+                h-[52px]
+                min-w-[196px]
                 items-center
                 justify-center
-                rounded-md
+                rounded-[8px]
                 border
-                border-white/60
+                border-[#ff3030]
                 bg-transparent
-                px-6
-                text-xs
+                px-8
+                text-[15px]
                 font-semibold
-                text-white
+                tracking-[0.2px]
+                text-[#ff3030]
+
                 transition-all
                 duration-300
 
-                hover:bg-white
-                hover:text-[#071b2f]
+                hover:bg-[#ff3030]
+                hover:text-white
+
+                max-[820px]:h-11
+                max-[820px]:min-w-[165px]
+                max-[820px]:px-6
+                max-[820px]:text-sm
 
                 max-[480px]:h-9
                 max-[480px]:min-w-[115px]

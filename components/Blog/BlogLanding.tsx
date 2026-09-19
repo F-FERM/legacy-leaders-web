@@ -29,47 +29,54 @@ const sidePosts = [
 
 const BlogLanding = () => {
   return (
-    <section className="w-full bg-white pt-[75px]">
+    <section className="w-full bg-white">
       {/* =========================================================
           BLOG HEADER
       ========================================================= */}
-      <div className="w-full border-b border-[#d8deea] bg-[#eef3ff]">
+      <div className="w-full bg-[#f1f1f1]">
         <div
           className="
             mx-auto
             flex
-            min-h-[150px]
+            min-h-[350px]
             max-w-[1300px]
             flex-col
             items-center
             justify-center
             px-6
-            py-10
             text-center
+
             sm:px-8
+            lg:px-10
           "
         >
+          {/* =======================================================
+              HEADING
+          ======================================================= */}
           <h1
             className="
-              font-serif
-              text-[28px]
-              font-bold
-              leading-tight
+              text-[50px]
+              font-semibold
+              leading-[57.6px]
+              tracking-[-0.96px]
               text-[#14243a]
-              lg:text-[32px]
-              font-serif-custom
             "
           >
             Insights &amp; Updates
           </h1>
 
+          {/* =======================================================
+              DESCRIPTION
+          ======================================================= */}
           <p
             className="
-              mt-2.5
-              text-[9px]
-              leading-[1.6]
+              mt-7
+              max-w-[650px]
+              text-[18px]
+              font-normal
+              leading-[28.8px]
+              tracking-[0px]
               text-[#555]
-              sm:text-[10px]
             "
           >
             Stay informed on the latest UAE accounting, VAT, and corporate tax
@@ -103,7 +110,8 @@ const BlogLanding = () => {
                 aspect-[1.8/1]
                 w-full
                 overflow-hidden
-                rounded-[9px]
+                rounded-[30px]
+
                 sm:aspect-[2/1]
                 lg:aspect-[2/1]
               "
@@ -146,19 +154,20 @@ const BlogLanding = () => {
                   absolute
                   inset-x-0
                   bottom-0
-                  p-5
-                  sm:p-6
+                  p-6
+
+                  sm:p-8
                 "
               >
                 {/* Category */}
                 <span
                   className="
                     inline-flex
-                    rounded-[2px]
+                    rounded-[4px]
                     bg-[#9a7a3a]
-                    px-2
-                    py-1
-                    text-[11px]
+                    px-3
+                    py-1.5
+                    text-[14px]
                     font-semibold
                     text-white
                   "
@@ -169,14 +178,12 @@ const BlogLanding = () => {
                 {/* Title */}
                 <h2
                   className="
-                    mt-2
-                    max-w-[620px]
-                    font-serif
-                    text-[19px]
-                    font-bold
-                    leading-[1.15]
+                    mt-3
+                    max-w-[700px]
+                    text-[30px]
+                    font-semibold
+                    leading-[1.2]
                     text-white
-                    sm:text-[21px]
                   "
                 >
                   {featuredPost.title}
@@ -185,11 +192,12 @@ const BlogLanding = () => {
                 {/* Description */}
                 <p
                   className="
-                    mt-1.5
-                    max-w-[620px]
-                    text-[13px]
-                    leading-[1.5]
-                    text-white/80
+                    mt-3
+                    max-w-[700px]
+                    text-[16px]
+                    font-normal
+                    leading-[1.6]
+                    text-white/85
                   "
                 >
                   {featuredPost.description}
@@ -203,8 +211,10 @@ const BlogLanding = () => {
             <div
               className="
                 grid
-                gap-2.5
+                gap-4
+
                 sm:grid-cols-2
+
                 lg:grid-cols-1
               "
             >
@@ -215,25 +225,27 @@ const BlogLanding = () => {
                   className="
                     group
                     flex
-                    min-h-[105px]
+                    min-h-[180px]
                     flex-col
                     justify-center
-                    rounded-[3px]
+                    rounded-[20px]
                     border
                     border-[#d7dbe2]
                     bg-white
-                    px-4
-                    py-4
+                    px-6
+                    py-6
+
                     transition-all
                     duration-300
-                    hover:-translate-y-0.5
+
+                    hover:-translate-y-1
                     hover:shadow-md
                   "
                 >
                   {/* Category */}
                   <span
                     className="
-                      text-[11px]
+                      text-[14px]
                       font-semibold
                       uppercase
                       tracking-[0.08em]
@@ -246,10 +258,10 @@ const BlogLanding = () => {
                   {/* Title */}
                   <h2
                     className="
-                      mt-1
-                      text-[18px]
-                      font-bold
-                      leading-[1.15]
+                      mt-2
+                      text-[24px]
+                      font-semibold
+                      leading-[1.25]
                       text-[#14243a]
                       transition-colors
                       duration-300
@@ -262,9 +274,10 @@ const BlogLanding = () => {
                   {/* Description */}
                   <p
                     className="
-                      mt-1.5
-                      text-[13px]
-                      leading-[1.4]
+                      mt-3
+                      text-[16px]
+                      font-normal
+                      leading-[1.6]
                       text-[#666]
                     "
                   >

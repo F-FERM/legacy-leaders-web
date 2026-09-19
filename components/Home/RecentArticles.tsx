@@ -32,8 +32,8 @@ const articles = [
 
 const RecentArticles = () => {
   return (
-    <section className="w-full bg-white py-10 sm:py-12 lg:py-14">
-      <div className="mx-auto max-w-[1300px] px-5 sm:px-6 lg:px-0">
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-[90px]">
+      <div className="mx-auto w-full max-w-[1500px] px-6 sm:px-8 lg:px-10">
         {/* =========================================================
             SECTION HEADING
         ========================================================= */}
@@ -41,7 +41,7 @@ const RecentArticles = () => {
           {/* Eyebrow */}
           <span
             className="
-              text-[10px]
+              text-[11px]
               font-semibold
               uppercase
               tracking-[0.22em]
@@ -54,16 +54,16 @@ const RecentArticles = () => {
           {/* Heading */}
           <h2
             className="
-              mt-2
-              font-serif-custom
-              text-[32px]
+              mt-3
+              text-[36px]
               font-bold
-              leading-[1.15]
-              text-[#14243a]
+              leading-[1.2]
+              tracking-[-0.5px]
+              text-[#14243A]
 
-              sm:text-[36px]
+              sm:text-[42px]
 
-              lg:text-[40px]
+              lg:text-[48px]
             "
           >
             Stay Informed. Stay Compliant.
@@ -73,15 +73,13 @@ const RecentArticles = () => {
           <p
             className="
               mx-auto
-              mt-3
-              max-w-[680px]
-              text-[12px]
-              leading-[1.55]
-              text-[#555]
-
-              sm:text-[13px]
-
-              lg:text-[14px]
+              mt-4
+              max-w-[850px]
+              text-[18px]
+              font-normal
+              leading-[25.6px]
+              tracking-[0px]
+              text-[#555555]
             "
           >
             Use this space for future articles and updates on accounting, VAT,
@@ -95,79 +93,101 @@ const RecentArticles = () => {
         ========================================================= */}
         <div
           className="
-            mt-8
+            mx-auto
+            mt-[45px]
             grid
+            w-full
             grid-cols-1
-            gap-5
+            justify-items-center
+            gap-[30px]
 
-            sm:grid-cols-2
+            md:grid-cols-2
 
-            lg:grid-cols-3
+            xl:grid-cols-3
           "
         >
           {articles.map((article) => (
             <article
               key={article.title}
               className="
+                group
+                relative
+                h-[500px]
+                w-full
+                max-w-[461px]
                 overflow-hidden
-                rounded-[9px]
+                rounded-[30px]
                 border
-                border-[#d8dce3]
-                bg-white
-
-                transition-all
-                duration-300
-
-                hover:-translate-y-1
-                hover:shadow-lg
+                border-[#606060]
+                bg-[#0000004D]
               "
             >
               {/* =====================================================
-                  ARTICLE IMAGE
+                  BACKGROUND IMAGE
               ===================================================== */}
-              <div className="px-3 pt-3">
-                <div
-                  className="
-                    h-[134px]
-                    overflow-hidden
-                    rounded-[8px]
+              <img
+                src={article.image}
+                alt={article.title}
+                className="
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
 
-                    sm:h-[140px]
-                    lg:h-[134px]
-                  "
-                >
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="
-                      h-full
-                      w-full
-                      object-cover
+                  transition-transform
+                  duration-500
 
-                      transition-transform
-                      duration-500
+                  group-hover:scale-105
+                "
+              />
 
-                      hover:scale-105
-                    "
-                  />
-                </div>
-              </div>
+              {/* =====================================================
+                  IMAGE SHADE
+              ===================================================== */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-[#0000004D]
+                "
+              />
 
               {/* =====================================================
                   ARTICLE CONTENT
               ===================================================== */}
-              <div className="px-3 pb-4 pt-3">
+              <div
+                className="
+                  relative
+                  z-10
+                  flex
+                  h-full
+                  flex-col
+                  justify-end
+
+                  px-[20px]
+                  pb-[30px]
+                  pt-[30px]
+                "
+              >
                 {/* ===================================================
                     CATEGORY + DATE
                 =================================================== */}
-                <div className="flex items-center justify-between gap-3">
+                <div
+                  className="
+                    mb-4
+                    flex
+                    items-center
+                    justify-between
+                    gap-4
+                  "
+                >
                   <span
                     className="
-                      truncate
-                      text-[10px]
-                      font-bold
+                      text-[13px]
+                      font-semibold
                       uppercase
-                      tracking-[0.06em]
+                      tracking-[0.05em]
                       text-[#003896]
                     "
                   >
@@ -177,8 +197,9 @@ const RecentArticles = () => {
                   <span
                     className="
                       shrink-0
-                      text-[10px]
-                      text-[#555]
+                      text-[13px]
+                      font-normal
+                      text-white
                     "
                   >
                     {article.date}
@@ -190,11 +211,12 @@ const RecentArticles = () => {
                 =================================================== */}
                 <h3
                   className="
-                    mt-2
-                    text-[19px]
-                    font-bold
-                    leading-[1.18]
-                    text-[#14243a]
+                    max-w-[420px]
+                    text-[30px]
+                    font-semibold
+                    leading-[1.2]
+                    tracking-[0px]
+                    text-white
                   "
                 >
                   {article.title}
@@ -205,11 +227,13 @@ const RecentArticles = () => {
                 =================================================== */}
                 <p
                   className="
-                    mt-2
-                    min-h-[42px]
-                    text-[12px]
-                    leading-[1.45]
-                    text-[#666]
+                    mt-4
+                    max-w-[420px]
+                    text-[16px]
+                    font-normal
+                    leading-[25.6px]
+                    tracking-[0px]
+                    text-white/90
                   "
                 >
                   {article.description}
@@ -221,31 +245,26 @@ const RecentArticles = () => {
                 <Link
                   href={""}
                   className="
-                    mt-3
+                    mt-5
                     inline-flex
+                    w-fit
                     items-center
-                    gap-1.5
+                    gap-2
 
-                    text-[11px]
-                    font-bold
-                    text-[#111]
+                    text-[16px]
+                    font-semibold
+                    leading-[25.6px]
+                    text-white
 
-                    transition-colors
+                    transition-all
                     duration-300
 
-                    hover:text-[#003896]
+                    hover:gap-3
+                    hover:text-[#BFD4FF]
                   "
                 >
                   Read More
-
-                  <span
-                    className="
-                      text-[15px]
-                      leading-none
-                    "
-                  >
-                    →
-                  </span>
+                  <span className="text-[20px] leading-none">→</span>
                 </Link>
               </div>
             </article>

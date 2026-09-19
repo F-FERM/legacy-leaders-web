@@ -2,37 +2,99 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#596574] text-white">
-      {/* Main Footer */}
-      <div className="relative z-10 mx-auto max-w-[1300px] px-8 pb-5 pt-12 sm:px-10 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-8">
-          {/* Company */}
-          <div className="max-w-[300px]">
+    <footer className="relative w-full overflow-hidden bg-[#5B5B5B] text-white">
+      {/* =========================================================
+          MAIN FOOTER
+      ========================================================= */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1300px]
+          px-7
+          pb-4
+          pt-8
+
+          sm:px-8
+          sm:pt-9
+
+          lg:px-0
+          lg:pt-8
+        "
+      >
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-8
+
+            sm:grid-cols-2
+            sm:gap-8
+
+            lg:grid-cols-[2.1fr_0.8fr_0.8fr_0.8fr]
+            lg:gap-10
+          "
+        >
+          {/* =====================================================
+              COMPANY
+          ===================================================== */}
+          <div className="max-w-[310px]">
             <Link href="/" className="inline-block">
               <img
                 src="/logo.png"
                 alt="Legacy Leaders"
-                className="h-auto w-[180px] object-contain"
+                className="
+                  h-auto
+                  w-[280px]
+                  object-contain
+                "
               />
             </Link>
 
-            <p className="mt-3 max-w-[280px] text-[18px] leading-[1.55] text-white/75">
+            <p
+              className="
+                mt-2
+                max-w-[300px]
+                text-[14px]
+                font-normal
+                leading-[20px]
+                text-white/55
+              "
+            >
               Your trusted partner for professional accounting and bookkeeping
               services in the UAE.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* =====================================================
+              QUICK LINKS
+          ===================================================== */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white">
+            <h3
+              className="
+                text-[15px]
+                font-semibold
+                leading-[20px]
+                text-white
+              "
+            >
               Quick Links
             </h3>
 
-            <ul className="mt-2.5 space-y-1.5">
+            <ul className="mt-2.5 space-y-1">
               <li>
                 <Link
                   href="/"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Home
                 </Link>
@@ -41,7 +103,15 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   About
                 </Link>
@@ -50,7 +120,15 @@ const Footer = () => {
               <li>
                 <Link
                   href="/services"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Service
                 </Link>
@@ -59,7 +137,15 @@ const Footer = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Blog
                 </Link>
@@ -67,15 +153,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* =====================================================
+              RESOURCES
+          ===================================================== */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white">Resources</h3>
+            <h3
+              className="
+                text-[15px]
+                font-semibold
+                leading-[20px]
+                text-white
+              "
+            >
+              Resources
+            </h3>
 
-            <ul className="mt-2.5 space-y-1.5">
+            <ul className="mt-2.5 space-y-1">
               <li>
                 <Link
-                  href="/vat-guide"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  href=""
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   VAT Guide
                 </Link>
@@ -83,8 +188,16 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/corporate-tax"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  href=""
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Corporate Tax
                 </Link>
@@ -92,8 +205,16 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/careers"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  href=""
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Careers
                 </Link>
@@ -101,15 +222,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links */}
+          {/* =====================================================
+              LINKS
+          ===================================================== */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white">Links</h3>
+            <h3
+              className="
+                text-[15px]
+                font-semibold
+                leading-[20px]
+                text-white
+              "
+            >
+              Links
+            </h3>
 
-            <ul className="mt-2.5 space-y-1.5">
+            <ul className="mt-2.5 space-y-1">
               <li>
                 <Link
-                  href="/privacy-policy"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  href=""
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Privacy Policy
                 </Link>
@@ -117,8 +257,16 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/terms-of-service"
-                  className="text-[16px] text-white/65 transition-colors hover:text-white"
+                  href=""
+                  className="
+                    text-[14px]
+                    font-normal
+                    leading-[20px]
+                    text-white/45
+                    transition-colors
+                    duration-200
+                    hover:text-white
+                  "
                 >
                   Terms of Service
                 </Link>
@@ -127,20 +275,70 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="relative mt-7 border-t border-white/10 pt-3">
-          <p className="text-[15px] text-white/45">
-            © 2024 Legacy Leaders LLC. Professional Accounting & Bookkeeping
+        {/* =========================================================
+            COPYRIGHT DIVIDER
+        ========================================================= */}
+        <div
+          className="
+            relative
+            mt-7
+            border-t
+            border-white/10
+            pt-2.5
+          "
+        >
+          <p
+            className="
+              text-[12px]
+              font-normal
+              leading-[18px]
+              text-white/35
+            "
+          >
+            © 2024 Legacy Leaders LLC. Professional Accounting &amp; Bookkeeping
             Services in the UAE.
           </p>
         </div>
       </div>
 
-      {/* Background Decorative Text - FIXED */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 select-none overflow-hidden w-full">
-        <span className="block text-center font-serif text-[40px] font-bold tracking-[-0.04em] text-white/[0.06] sm:text-[60px] md:text-[80px] lg:text-[110px] xl:text-[125px] leading-[1.2] pb-2">
+      {/* =========================================================
+          LARGE DECORATIVE BACKGROUND TEXT
+      ========================================================= */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-[-30px]
+          left-1/2
+          z-0
+          w-full
+          -translate-x-1/2
+          select-none
+          overflow-hidden
+        "
+      >
+        <div
+          className="
+            whitespace-nowrap
+            text-center
+            font-serif
+            text-[88px]
+            font-bold
+            leading-none
+            tracking-[-0.045em]
+            text-white/[0.045]
+
+            sm:text-[110px]
+
+            md:text-[130px]
+
+            lg:text-[145px]
+
+            xl:text-[155px]
+          "
+        >
           LEGACY LEADERS
-        </span>
+        </div>
       </div>
     </footer>
   );

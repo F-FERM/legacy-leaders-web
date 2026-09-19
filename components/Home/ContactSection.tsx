@@ -53,6 +53,9 @@ const ContactFormSection = () => {
     }));
   };
 
+  // ============================================================
+  // SUBMIT LOGIC - KEPT UNCHANGED
+  // ============================================================
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -111,73 +114,153 @@ Sent from Legacy Leaders LLC Website
   };
 
   return (
-    <section className="w-full bg-[#dce8ff] py-10 sm:py-14 lg:py-16">
-      <div className="mx-auto max-w-[1300px] px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-4 lg:grid-cols-[0.72fr_1fr]">
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-cover
+        bg-center
+        bg-no-repeat
+        py-12
+        sm:py-16
+        lg:py-20
+      "
+      style={{
+        backgroundImage: "url('/contact-bg.jpg')",
+      }}
+    >
+      {/* =========================================================
+          BACKGROUND OVERLAY
+      ========================================================= */}
+      <div className="absolute inset-0 bg-black/30" />
+
+      {/* =========================================================
+          CONTENT
+      ========================================================= */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1300px]
+          px-5
+
+          sm:px-8
+
+          lg:px-10
+        "
+      >
+        <div
+          className="
+            grid
+            gap-4
+
+            lg:grid-cols-[0.72fr_1fr]
+            lg:gap-[12px]
+          "
+        >
           {/* =====================================================
-              CONTACT INFORMATION
+              LEFT - CONTACT INFORMATION
           ===================================================== */}
           <div
             className="
-              min-h-[470px]
-              rounded-[15px]
+              min-h-[430px]
+              rounded-[14px]
               border
-              border-[#c8ceda]
-              bg-[#f8f9ff]
-              p-5
-              sm:p-6
+              border-white/50
+              bg-white/65
+              p-6
+              backdrop-blur-[6px]
+
+              sm:p-7
+
+              lg:px-5
+              lg:py-5
             "
           >
             {/* Heading */}
             <h2
               className="
-                font-serif-custom
-                text-[25px]
+                text-[28px]
                 font-semibold
-                leading-tight
-                text-[#14243a]
-                sm:text-[27px]
+                leading-[34px]
+                text-[#003896]
+
+                sm:text-[30px]
+                sm:leading-[36px]
               "
             >
               Contact Us
             </h2>
 
             {/* Divider */}
-            <div className="mt-3 h-px w-full bg-[#d2d5dc]" />
+            <div className="mt-4 h-px w-full bg-black/10" />
 
             {/* Company */}
-            <div className="mt-4">
-              <h3 className="text-[16px] font-bold text-[#111827]">
+            <div className="mt-5">
+              <h3
+                className="
+                  text-[18px]
+                  font-semibold
+                  leading-[25px]
+                  text-[#111111]
+                "
+              >
                 Legacy Leaders LLC
               </h3>
 
-              <p className="mt-1 text-[15px] text-[#555]">
+              <p
+                className="
+                  mt-1
+                  text-[16px]
+                  font-normal
+                  leading-[24px]
+                  text-[#555555]
+                "
+              >
                 Accounting &amp; Bookkeeping Firm
               </p>
             </div>
 
-            {/* Contact Details */}
-            <div className="mt-7 space-y-5">
-              {/* Email */}
-              <div className="flex items-start gap-2.5">
+            {/* ===================================================
+                CONTACT DETAILS
+            =================================================== */}
+            <div className="mt-8 space-y-6">
+              {/* EMAIL */}
+              <div className="flex items-start gap-3">
                 <Mail
-                  size={21}
-                  strokeWidth={1.8}
-                  className="mt-0.5 shrink-0 text-[#003896]"
+                  className="
+                    mt-1
+                    h-[21px]
+                    w-[21px]
+                    shrink-0
+                    text-[#003896]
+                  "
+                  strokeWidth={2}
                 />
 
                 <div>
-                  <p className="text-[14px] font-semibold text-[#14243a]">
+                  <p
+                    className="
+                      text-[16px]
+                      font-medium
+                      leading-[22px]
+                      text-[#003896]
+                    "
+                  >
                     Email
                   </p>
 
                   <a
                     href="mailto:info@legacyleadersuae.com"
                     className="
-                      mt-0.5
+                      mt-1
                       block
-                      text-[15px]
-                      text-[#333]
+                      text-[16px]
+                      font-normal
+                      leading-[24px]
+                      text-[#555555]
                       transition-colors
                       hover:text-[#003896]
                     "
@@ -187,26 +270,40 @@ Sent from Legacy Leaders LLC Website
                 </div>
               </div>
 
-              {/* Mobile */}
-              <div className="flex items-start gap-2.5">
+              {/* MOBILE */}
+              <div className="flex items-start gap-3">
                 <Phone
-                  size={20}
-                  strokeWidth={1.8}
-                  className="mt-0.5 shrink-0 text-[#003896]"
+                  className="
+                    mt-1
+                    h-[21px]
+                    w-[21px]
+                    shrink-0
+                    text-[#003896]
+                  "
+                  strokeWidth={2}
                 />
 
                 <div>
-                  <p className="text-[14px] font-semibold text-[#14243a]">
+                  <p
+                    className="
+                      text-[16px]
+                      font-medium
+                      leading-[22px]
+                      text-[#003896]
+                    "
+                  >
                     Mobile
                   </p>
 
                   <a
                     href={`tel:+${WHATSAPP_NUMBER}`}
                     className="
-                      mt-0.5
+                      mt-1
                       block
-                      text-[15px]
-                      text-[#555]
+                      text-[16px]
+                      font-normal
+                      leading-[24px]
+                      text-[#555555]
                       transition-colors
                       hover:text-[#003896]
                     "
@@ -216,20 +313,40 @@ Sent from Legacy Leaders LLC Website
                 </div>
               </div>
 
-              {/* Office */}
-              <div className="flex items-start gap-2.5">
+              {/* OFFICE */}
+              <div className="flex items-start gap-3">
                 <MapPin
-                  size={21}
-                  strokeWidth={1.8}
-                  className="mt-0.5 shrink-0 text-[#003896]"
+                  className="
+                    mt-1
+                    h-[22px]
+                    w-[22px]
+                    shrink-0
+                    text-[#003896]
+                  "
+                  strokeWidth={2}
                 />
 
                 <div>
-                  <p className="text-[14px] font-semibold text-[#14243a]">
+                  <p
+                    className="
+                      text-[16px]
+                      font-medium
+                      leading-[22px]
+                      text-[#003896]
+                    "
+                  >
                     Office
                   </p>
 
-                  <p className="mt-0.5 text-[15px] text-[#555]">
+                  <p
+                    className="
+                      mt-1
+                      text-[16px]
+                      font-normal
+                      leading-[24px]
+                      text-[#555555]
+                    "
+                  >
                     Dubai, United Arab Emirates
                   </p>
                 </div>
@@ -238,44 +355,65 @@ Sent from Legacy Leaders LLC Website
           </div>
 
           {/* =====================================================
-              CONTACT FORM
+              RIGHT - CONTACT FORM
           ===================================================== */}
           <div
             className="
-              rounded-[15px]
+              min-h-[430px]
+              rounded-[14px]
               border
-              border-[#c8ceda]
-              bg-[#f8f9ff]
-              p-5
-              sm:p-6
+              border-white/50
+              bg-white/65
+              p-6
+              backdrop-blur-[6px]
+
+              sm:p-7
+
+              lg:px-5
+              lg:py-5
             "
           >
             {/* Heading */}
             <h2
               className="
-                font-serif-custom
-                text-[25px]
+                text-[28px]
                 font-semibold
-                leading-tight
-                text-[#14243a]
-                sm:text-[27px]
+                leading-[34px]
+                text-[#003896]
+
+                sm:text-[30px]
+                sm:leading-[36px]
               "
             >
               Send Us a Message
             </h2>
 
+            {/* =================================================
+                FORM
+            ================================================= */}
             <form onSubmit={handleSubmit} className="mt-5">
-              {/* First Name + Last Name */}
-              <div className="grid gap-4 sm:grid-cols-2">
+              {/* =================================================
+                  FIRST NAME + LAST NAME
+              ================================================= */}
+              <div
+                className="
+                  grid
+                  gap-5
+
+                  sm:grid-cols-2
+                "
+              >
+                {/* First Name */}
                 <div>
                   <label
                     htmlFor="firstName"
                     className="
-                      mb-1.5
+                      mb-2
                       block
-                      text-[12px]
-                      font-medium
-                      text-[#14243a]
+                      text-[13px]
+                      font-normal
+                      leading-[18px]
+                      text-[#333333]
                     "
                   >
                     First Name
@@ -289,17 +427,18 @@ Sent from Legacy Leaders LLC Website
                     value={formData.firstName}
                     onChange={handleChange}
                     className="
-                      h-[36px]
+                      h-[42px]
                       w-full
                       rounded-[7px]
                       border
-                      border-[#cfd4dd]
-                      bg-transparent
-                      px-3
-                      text-[13px]
-                      text-[#14243a]
+                      border-white/70
+                      bg-white/75
+                      px-3.5
+                      text-[16px]
+                      text-[#222222]
                       outline-none
-                      transition
+                      transition-all
+
                       focus:border-[#003896]
                       focus:ring-1
                       focus:ring-[#003896]/20
@@ -307,15 +446,17 @@ Sent from Legacy Leaders LLC Website
                   />
                 </div>
 
+                {/* Last Name */}
                 <div>
                   <label
                     htmlFor="lastName"
                     className="
-                      mb-1.5
+                      mb-2
                       block
-                      text-[12px]
-                      font-medium
-                      text-[#14243a]
+                      text-[13px]
+                      font-normal
+                      leading-[18px]
+                      text-[#333333]
                     "
                   >
                     Last Name
@@ -329,17 +470,18 @@ Sent from Legacy Leaders LLC Website
                     value={formData.lastName}
                     onChange={handleChange}
                     className="
-                      h-[36px]
+                      h-[42px]
                       w-full
                       rounded-[7px]
                       border
-                      border-[#cfd4dd]
-                      bg-transparent
-                      px-3
-                      text-[13px]
-                      text-[#14243a]
+                      border-white/70
+                      bg-white/75
+                      px-3.5
+                      text-[16px]
+                      text-[#222222]
                       outline-none
-                      transition
+                      transition-all
+
                       focus:border-[#003896]
                       focus:ring-1
                       focus:ring-[#003896]/20
@@ -348,17 +490,29 @@ Sent from Legacy Leaders LLC Website
                 </div>
               </div>
 
-              {/* Email + Phone */}
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {/* =================================================
+                  EMAIL + PHONE
+              ================================================= */}
+              <div
+                className="
+                  mt-5
+                  grid
+                  gap-5
+
+                  sm:grid-cols-2
+                "
+              >
+                {/* Email */}
                 <div>
                   <label
                     htmlFor="email"
                     className="
-                      mb-1.5
+                      mb-2
                       block
-                      text-[12px]
-                      font-medium
-                      text-[#14243a]
+                      text-[13px]
+                      font-normal
+                      leading-[18px]
+                      text-[#333333]
                     "
                   >
                     Email Address
@@ -372,17 +526,18 @@ Sent from Legacy Leaders LLC Website
                     value={formData.email}
                     onChange={handleChange}
                     className="
-                      h-[36px]
+                      h-[42px]
                       w-full
                       rounded-[7px]
                       border
-                      border-[#cfd4dd]
-                      bg-transparent
-                      px-3
-                      text-[13px]
-                      text-[#14243a]
+                      border-white/70
+                      bg-white/75
+                      px-3.5
+                      text-[16px]
+                      text-[#222222]
                       outline-none
-                      transition
+                      transition-all
+
                       focus:border-[#003896]
                       focus:ring-1
                       focus:ring-[#003896]/20
@@ -390,15 +545,17 @@ Sent from Legacy Leaders LLC Website
                   />
                 </div>
 
+                {/* Phone */}
                 <div>
                   <label
                     htmlFor="phone"
                     className="
-                      mb-1.5
+                      mb-2
                       block
-                      text-[12px]
-                      font-medium
-                      text-[#14243a]
+                      text-[13px]
+                      font-normal
+                      leading-[18px]
+                      text-[#333333]
                     "
                   >
                     Phone Number
@@ -411,17 +568,18 @@ Sent from Legacy Leaders LLC Website
                     value={formData.phone}
                     onChange={handleChange}
                     className="
-                      h-[36px]
+                      h-[42px]
                       w-full
                       rounded-[7px]
                       border
-                      border-[#cfd4dd]
-                      bg-transparent
-                      px-3
-                      text-[13px]
-                      text-[#14243a]
+                      border-white/70
+                      bg-white/75
+                      px-3.5
+                      text-[16px]
+                      text-[#222222]
                       outline-none
-                      transition
+                      transition-all
+
                       focus:border-[#003896]
                       focus:ring-1
                       focus:ring-[#003896]/20
@@ -430,16 +588,19 @@ Sent from Legacy Leaders LLC Website
                 </div>
               </div>
 
-              {/* Industry */}
-              <div className="mt-4">
+              {/* =================================================
+                  INDUSTRY
+              ================================================= */}
+              <div className="mt-5">
                 <label
                   htmlFor="industry"
                   className="
-                    mb-1.5
+                    mb-2
                     block
-                    text-[12px]
-                    font-medium
-                    text-[#14243a]
+                    text-[13px]
+                    font-normal
+                    leading-[18px]
+                    text-[#333333]
                   "
                 >
                   Industry
@@ -451,17 +612,18 @@ Sent from Legacy Leaders LLC Website
                   value={formData.industry}
                   onChange={handleChange}
                   className="
-                    h-[36px]
+                    h-[42px]
                     w-full
                     rounded-[7px]
                     border
-                    border-[#cfd4dd]
-                    bg-transparent
-                    px-3
-                    text-[13px]
-                    text-[#14243a]
+                    border-white/70
+                    bg-white/75
+                    px-3.5
+                    text-[16px]
+                    text-[#222222]
                     outline-none
-                    transition
+                    transition-all
+
                     focus:border-[#003896]
                     focus:ring-1
                     focus:ring-[#003896]/20
@@ -477,16 +639,19 @@ Sent from Legacy Leaders LLC Website
                 </select>
               </div>
 
-              {/* Message */}
-              <div className="mt-4">
+              {/* =================================================
+                  MESSAGE
+              ================================================= */}
+              <div className="mt-5">
                 <label
                   htmlFor="message"
                   className="
-                    mb-1.5
+                    mb-2
                     block
-                    text-[12px]
-                    font-medium
-                    text-[#14243a]
+                    text-[13px]
+                    font-normal
+                    leading-[18px]
+                    text-[#333333]
                   "
                 >
                   Message
@@ -500,19 +665,21 @@ Sent from Legacy Leaders LLC Website
                   value={formData.message}
                   onChange={handleChange}
                   className="
-                    min-h-[84px]
+                    min-h-[96px]
                     w-full
                     resize-none
                     rounded-[7px]
                     border
-                    border-[#cfd4dd]
-                    bg-transparent
-                    px-3
-                    py-2.5
-                    text-[13px]
-                    text-[#14243a]
+                    border-white/70
+                    bg-white/75
+                    px-3.5
+                    py-3
+                    text-[16px]
+                    leading-[24px]
+                    text-[#222222]
                     outline-none
-                    transition
+                    transition-all
+
                     focus:border-[#003896]
                     focus:ring-1
                     focus:ring-[#003896]/20
@@ -520,26 +687,31 @@ Sent from Legacy Leaders LLC Website
                 />
               </div>
 
-              {/* Submit */}
+              {/* =================================================
+                  SUBMIT BUTTON
+              ================================================= */}
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className="
-                  mt-4
-                  h-[42px]
-                  min-w-[185px]
+                  mt-5
+                  h-[46px]
+                  min-w-[170px]
                   rounded-[8px]
                   bg-[#003896]
-                  px-7
-                  text-[13px]
+                  px-8
+                  text-[15px]
                   font-medium
                   tracking-wide
                   text-white
                   transition-all
                   duration-300
+
                   hover:bg-[#002b72]
-                  hover:scale-[1.01]
+                  hover:shadow-[0_6px_20px_rgba(0,56,150,0.25)]
+
                   active:scale-95
+
                   disabled:cursor-not-allowed
                   disabled:opacity-60
                 "

@@ -23,6 +23,14 @@ export const Navbar = () => {
     { name: "Blog", href: "/blog" },
   ];
 
+  // =========================================================
+  // CONTACT BUTTON IMAGE
+  // =========================================================
+  const contactButtonImage =
+    pathname === "/contact"
+      ? "/contact-button-active.png"
+      : "/contact-button.png";
+
   return (
     <nav
       className="
@@ -31,16 +39,11 @@ export const Navbar = () => {
         top-0
         z-[1000]
         w-full
-
-        /* Glass effect for all screen sizes */
-        bg-[#b4acac47]
-
         border-b
         border-white/10
-
+        bg-[#b4acac47]
         backdrop-blur-xl
         backdrop-saturate-150
-
         shadow-[0_4px_30px_rgba(0,0,0,0.15)]
       "
     >
@@ -64,25 +67,31 @@ export const Navbar = () => {
         "
       >
         {/* =======================================================
-            LOGO - Moved to the left
+            LOGO
         ======================================================= */}
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex items-center -ml-6 max-[820px]:-ml-0"
+          className="
+            flex
+            items-center
+            -ml-6
+
+            max-[820px]:ml-0
+          "
         >
           <div className="flex items-center gap-3">
             <img
               src="/logo.png"
               alt="Legacy Leaders"
               className="
-        h-[60px]
-        w-auto
-        object-contain
+                h-[60px]
+                w-auto
+                object-contain
 
-        max-[820px]:h-[50px]
-        max-[480px]:h-[45px]
-      "
+                max-[820px]:h-[50px]
+                max-[480px]:h-[45px]
+              "
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
@@ -91,7 +100,7 @@ export const Navbar = () => {
         </Link>
 
         {/* =======================================================
-            DESKTOP NAVIGATION - Keeping current position
+            DESKTOP NAVIGATION
         ======================================================= */}
         <ul className="flex items-center gap-5 max-[820px]:hidden">
           {navLinks.map((link) => {
@@ -122,7 +131,6 @@ export const Navbar = () => {
                           after:bottom-0
                           after:left-4
                           after:right-4
-
                           after:h-[2px]
                           after:rounded-full
                           after:bg-[#003896]
@@ -141,61 +149,46 @@ export const Navbar = () => {
           })}
         </ul>
 
-        {/* =======================================================
-            CONTACT BUTTON - DESKTOP
-        ======================================================= */}
+        {/* =========================================================
+            DESKTOP CONTACT BUTTON
+        ========================================================= */}
         <div className="max-[820px]:hidden">
           <Link
             href="/contact"
+            aria-label="Contact"
+            onClick={closeMenu}
             className="
-              group
-              inline-flex
-              rounded-full
-
-              bg-gradient-to-r
-              from-white
-              via-[#0F2256]
-              to-[#022764]
-
-              p-[1px]
+              block
+              h-[50px]
+              w-[161px]
+              overflow-hidden
+              rounded-[58px]
 
               transition-all
               duration-300
+              ease-out
 
-              hover:shadow-[0_0_20px_rgba(15,34,86,0.35)]
+              hover:scale-[1.02]
             "
           >
-            <span
+            <img
+              src={contactButtonImage}
+              alt="Contact"
+              width={161}
+              height={50}
               className="
-                inline-flex
-                min-w-[118px]
-                items-center
-                justify-center
-                rounded-full
-
-                bg-[#3C3C3C47]
-
-                px-7
-                py-2.5
-
-                text-sm
-                font-semibold
-                !text-white
-
-                transition-all
-                duration-300
-
-                group-hover:bg-[#0F225638]
+                block
+                h-[50px]
+                w-[161px]
+                object-fill
               "
-            >
-              Contact
-            </span>
+            />
           </Link>
         </div>
 
-        {/* =======================================================
+        {/* =========================================================
             MOBILE HAMBURGER
-        ======================================================= */}
+        ========================================================= */}
         <button
           type="button"
           onClick={toggleMenu}
@@ -218,7 +211,6 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
-
               transition-all
               duration-300
 
@@ -233,7 +225,6 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
-
               transition-all
               duration-300
 
@@ -248,7 +239,6 @@ export const Navbar = () => {
               w-7
               rounded-full
               bg-white
-
               transition-all
               duration-300
 
@@ -271,7 +261,6 @@ export const Navbar = () => {
           border-b
           border-white/10
 
-          /* Same glass effect as desktop */
           bg-[#b4acac47]
 
           backdrop-blur-xl
@@ -287,8 +276,7 @@ export const Navbar = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        {/* Semi-transparent dark overlay for better readability */}
-        <div className="p-6 max-[480px]:p-5 bg-[#0a1628]/60">
+        <div className="bg-[#0a1628]/60 p-6 max-[480px]:p-5">
           <ul className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -301,13 +289,10 @@ export const Navbar = () => {
                     className={`
                       relative
                       block
-
                       px-4
                       py-3
-
                       text-lg
                       font-medium
-
                       transition-all
                       duration-300
 
@@ -320,7 +305,6 @@ export const Navbar = () => {
                             after:bottom-1
                             after:left-4
                             after:right-4
-
                             after:h-[2px]
                             after:rounded-full
                             after:bg-[#003896]
@@ -339,51 +323,39 @@ export const Navbar = () => {
             })}
 
             {/* =====================================================
-                MOBILE CONTACT
+                MOBILE CONTACT BUTTON
             ===================================================== */}
             <li className="mt-4">
               <Link
                 href="/contact"
                 onClick={closeMenu}
+                aria-label="Contact"
                 className="
-                  group
-                  inline-flex
-                  rounded-full
+                  block
+                  h-[50px]
+                  w-[161px]
+                  overflow-hidden
+                  rounded-[58px]
 
-                  bg-gradient-to-r
-                  from-white
-                  via-[#0F2256]
-                  to-[#022764]
+                  transition-all
+                  duration-300
+                  ease-out
 
-                  p-[1px]
+                  hover:scale-[1.02]
                 "
               >
-                <span
+                <img
+                  src={contactButtonImage}
+                  alt="Contact"
+                  width={161}
+                  height={50}
                   className="
-                    inline-flex
-                    min-w-[118px]
-                    items-center
-                    justify-center
-
-                    rounded-full
-
-                    bg-[#0a1628]
-
-                    px-7
-                    py-2.5
-
-                    text-sm
-                    font-semibold
-                    !text-white
-
-                    transition-all
-                    duration-300
-
-                    group-hover:bg-[#0F225638]
+                    block
+                    h-[50px]
+                    w-[161px]
+                    object-fill
                   "
-                >
-                  Contact
-                </span>
+                />
               </Link>
             </li>
           </ul>

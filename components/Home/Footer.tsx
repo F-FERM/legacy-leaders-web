@@ -326,7 +326,7 @@ const Footer = () => {
             font-bold
             leading-none
             tracking-[-0.045em]
-            text-white/[0.045]
+            text-[#0227641A]
 
             sm:text-[110px]
 

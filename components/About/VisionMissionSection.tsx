@@ -38,7 +38,7 @@ const VisionMissionSection = () => {
             grid
             gap-5
 
-            lg:grid-cols-[0.72fr_1fr]
+            lg:grid-cols-[0.72fr_1.08fr]
             lg:gap-5
           "
         >
@@ -48,30 +48,34 @@ const VisionMissionSection = () => {
           <div
             className="
               relative
-              min-h-[270px]
+              min-h-[250px]
               overflow-hidden
-              rounded-[15px]
+              rounded-[20px]
               bg-[#003896]
-              px-10
-              py-12
+              px-8
+              py-9
 
-              sm:px-11
+              sm:px-9
+              sm:py-10
 
-              lg:px-12
-              lg:py-12
+              lg:min-h-[250px]
+              lg:px-10
+              lg:py-10
             "
           >
             {/* =======================================================
-                EYE ICON
+                DECORATIVE EYE ICON
             ======================================================= */}
             <div
               className="
+                pointer-events-none
                 absolute
                 right-4
                 top-3
-                text-[#4d72c1]
+                text-[#5476bd]
 
                 sm:right-5
+                sm:top-3
               "
             >
               <Eye size={55} strokeWidth={1.7} />
@@ -89,13 +93,14 @@ const VisionMissionSection = () => {
             >
               <h2
                 className="
-                  font-serif-custom
-                  text-[30px]
+                  text-[22px]
                   font-semibold
-                  leading-[1.15]
+                  leading-[1.2]
                   text-white
 
-                  sm:text-[31px]
+                  sm:text-[23px]
+
+                  lg:text-[24px]
                 "
               >
                 Our Vision
@@ -104,14 +109,16 @@ const VisionMissionSection = () => {
               <p
                 className="
                   mt-4
-                  text-[17px]
+                  text-[16px]
                   font-normal
-                  leading-[1.5]
+                  leading-[1.55]
                   tracking-[0px]
                   text-white/90
 
-                  sm:text-[18px]
-                  sm:leading-[1.5]
+                  sm:text-[17px]
+
+                  lg:text-[17px]
+                  lg:leading-[26px]
                 "
               >
                 To become one of the UAE&apos;s most trusted accounting and tax
@@ -126,18 +133,18 @@ const VisionMissionSection = () => {
           ========================================================= */}
           <div
             className="
-              min-h-[270px]
-              rounded-[15px]
+              min-h-[250px]
+              rounded-[20px]
               border
-              border-[#cfd4df]
+              border-[#e1e3ec]
               bg-[#f8f9ff]
-              px-10
-              py-7
+              px-8
+              py-8
 
-              sm:px-11
+              sm:px-9
 
-              lg:px-12
-              lg:py-7
+              lg:px-10
+              lg:py-8
             "
           >
             {/* =======================================================
@@ -145,13 +152,14 @@ const VisionMissionSection = () => {
             ======================================================= */}
             <h2
               className="
-                font-serif-custom
-                text-[30px]
+                text-[22px]
                 font-semibold
-                leading-[1.15]
+                leading-[1.2]
                 text-[#14243a]
 
-                sm:text-[31px]
+                sm:text-[23px]
+
+                lg:text-[24px]
               "
             >
               Our Mission
@@ -162,12 +170,15 @@ const VisionMissionSection = () => {
             ======================================================= */}
             <div
               className="
-                mt-5
+                mt-6
                 grid
-                gap-x-10
-                gap-y-8
+                grid-cols-1
+                gap-x-8
+                gap-y-7
 
                 sm:grid-cols-2
+                sm:gap-x-10
+                sm:gap-y-7
               "
             >
               {missionItems.map((item) => {
@@ -188,19 +199,22 @@ const VisionMissionSection = () => {
                     <div
                       className="
                         flex
-                        h-[42px]
-                        w-[42px]
+                        h-[38px]
+                        w-[38px]
                         shrink-0
                         items-center
                         justify-center
-                        rounded-[9px]
-                        bg-[#dce9ff]
+                        rounded-[8px]
+                        bg-[#f8dfe5]
+
+                        sm:h-[40px]
+                        sm:w-[40px]
                       "
                     >
                       <Icon
-                        size={20}
+                        size={19}
                         strokeWidth={1.8}
-                        className="text-[#003896]"
+                        className="text-[#ff3045]"
                       />
                     </div>
 
@@ -210,13 +224,16 @@ const VisionMissionSection = () => {
                     <p
                       className="
                         pt-[1px]
-                        text-[16px]
+                        text-[15px]
                         font-normal
                         leading-[1.5]
                         tracking-[0px]
                         text-[#555]
 
                         sm:text-[16px]
+
+                        lg:text-[16px]
+                        lg:leading-[24px]
                       "
                     >
                       {item.text}

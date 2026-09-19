@@ -41,9 +41,8 @@ export const Navbar = () => {
         w-full
         border-b
         border-white/10
-        bg-[#b4acac47]
+        bg-[rgba(60,60,60,0.28)]
         backdrop-blur-xl
-        backdrop-saturate-150
         shadow-[0_4px_30px_rgba(0,0,0,0.15)]
       "
     >
@@ -261,10 +260,8 @@ export const Navbar = () => {
           border-b
           border-white/10
 
-          bg-[#b4acac47]
-
+          bg-[rgba(60,60,60,0.28)]
           backdrop-blur-xl
-          backdrop-saturate-150
 
           shadow-[0_8px_30px_rgba(0,0,0,0.25)]
 
@@ -276,7 +273,7 @@ export const Navbar = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        <div className="bg-[#0a1628]/60 p-6 max-[480px]:p-5">
+        <div className="bg-[rgba(60,60,60,0.28)] p-6 max-[480px]:p-5">
           <ul className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

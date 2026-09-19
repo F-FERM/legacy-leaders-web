@@ -1,20 +1,26 @@
 const InsightsIntro = () => {
   return (
-    <section className="w-full bg-[#f1f1f1]">
+    <section
+      className="
+        w-full
+        border-b
+        border-[#D9D9D9]
+        bg-[#EDEDED]
+      "
+    >
       <div
         className="
           mx-auto
           flex
-          min-h-[350px]
-          max-w-[1300px]
+          min-h-[518px]
+          w-full
+          max-w-[1920px]
           flex-col
           items-center
           justify-center
-          px-6
+          px-[40px]
+          py-[128px]
           text-center
-
-          sm:px-8
-          lg:px-10
         "
       >
         {/* =========================================================
@@ -22,19 +28,14 @@ const InsightsIntro = () => {
         ========================================================= */}
         <h1
           className="
-            text-[42px]
+            text-[50px]
             font-semibold
-            leading-[1.15]
+            leading-[57.6px]
             tracking-[-0.96px]
-            text-[#14243a]
-
-            sm:text-[50px]
-
-            lg:text-[50px]
-            lg:leading-[57.6px]
+            text-[#0F1E32]
           "
         >
-          Insights &amp; Updates
+          Our Services
         </h1>
 
         {/* =========================================================
@@ -44,22 +45,15 @@ const InsightsIntro = () => {
           className="
             mt-7
             max-w-[650px]
-            font-['Work_Sans']
-            text-[17px]
+            text-[18px]
             font-normal
-            leading-[1.6]
+            leading-[28.8px]
             tracking-[0px]
-            text-[#555]
-
-            sm:text-[18px]
-            sm:leading-[28.8px]
-
-            lg:text-[18px]
-            lg:leading-[28.8px]
+            text-[#555555]
           "
         >
-          Stay informed on the latest UAE accounting, VAT, and corporate tax
-          regulations.
+          Comprehensive financial solutions tailored for precision, compliance,
+          and growth in the UAE.
         </p>
       </div>
     </section>

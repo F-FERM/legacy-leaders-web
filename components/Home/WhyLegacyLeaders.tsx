@@ -1,11 +1,91 @@
 export default function WhyLegacyLeaders() {
+  const features = [
+    {
+      title: "Why Choose Legacy Leaders LLC?",
+      description:
+        "Our team has extensive knowledge of UAE accounting, VAT, and Corporate Tax regulations.",
+    },
+    {
+      title: "Accuracy You Can Trust",
+      description:
+        "We maintain precise financial records to help you make informed business decisions.",
+    },
+    {
+      title: "Personalized Service",
+      description:
+        "Every business is unique. Our solutions are tailored to your specific business requirements.",
+    },
+    {
+      title: "Complete Compliance",
+      description:
+        "We help businesses meet UAE tax laws and financial reporting requirements.",
+    },
+    {
+      title: "Confidentiality",
+      description:
+        "Your financial information remains secure and confidential.",
+    },
+    {
+      title: "Affordable Solutions",
+      description:
+        "Professional accounting services designed to fit your business budget.",
+    },
+  ];
+
   return (
-    <section className="w-full bg-[#EFF4FF] py-8 sm:py-10 lg:py-12">
-      <div className="mx-auto max-w-[1300px] px-6 sm:px-8 lg:px-10">
-        {/* =========================================================
+    <section className="relative w-full overflow-hidden">
+      {/* =========================================================
+          BACKGROUND IMAGE
+      ========================================================= */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-cover
+          bg-center
+          bg-no-repeat
+        "
+        style={{
+          backgroundImage: "url('/why-legacy-leaders.jpg')",
+        }}
+      />
+
+      {/* =========================================================
+          DARK OVERLAY
+      ========================================================= */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-black/45
+        "
+      />
+
+      {/* =========================================================
+          CONTENT
+      ========================================================= */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-[1300px]
+          px-6
+          py-14
+
+          sm:px-8
+          sm:py-16
+
+          lg:px-10
+          lg:py-[28px]
+        "
+      >
+        {/* =======================================================
             SECTION HEADING
-        ========================================================= */}
+        ======================================================= */}
         <div className="text-left">
+          {/* Small Label */}
           <span
             className="
               text-[10px]
@@ -18,14 +98,15 @@ export default function WhyLegacyLeaders() {
             WHY LEGACY LEADERS
           </span>
 
+          {/* Heading */}
           <h2
             className="
               mt-2
-              font-serif-custom
               text-[30px]
               font-bold
-              leading-[1.15]
-              text-[#0a1628]
+              leading-[1.2]
+              tracking-[-0.5px]
+              text-white
 
               sm:text-[34px]
 
@@ -35,18 +116,16 @@ export default function WhyLegacyLeaders() {
             Why Choose Legacy Leaders LLC?
           </h2>
 
+          {/* Description */}
           <p
             className="
               mt-2
-              max-w-[620px]
-              text-[12px]
-              leading-[1.55]
-              text-[#555]
-
-              sm:text-[13px]
-
-              lg:text-[13px]
-              lg:leading-5
+              max-w-[650px]
+              text-[18px]
+              font-normal
+              leading-[25.6px]
+              tracking-[0px]
+              text-white/90
             "
           >
             Professional support designed around accuracy, compliance,
@@ -54,295 +133,70 @@ export default function WhyLegacyLeaders() {
           </p>
         </div>
 
-        {/* =========================================================
+        {/* =======================================================
             FEATURES GRID
-        ========================================================= */}
+        ======================================================= */}
         <div
           className="
-            mt-7
+            mt-8
             grid
             grid-cols-1
-            gap-[14px]
+            gap-3
 
             sm:grid-cols-2
 
-            lg:mt-8
+            lg:mt-6
+            lg:gap-3
           "
         >
-          {/* =======================================================
-              FEATURE 1 - WHY CHOOSE LEGACY LEADERS
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
+          {features.map((feature, index) => (
+            <div
+              key={index}
               className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
+                min-h-[150px]
+                rounded-[18px]
+                border
+                border-white/40
+                bg-white/70
+                px-8
+                py-5
+                backdrop-blur-[3px]
+
+                transition-all
+                duration-300
+
+                hover:-translate-y-1
+                hover:bg-white/80
               "
             >
-              Why Choose Legacy Leaders LLC?
-            </h3>
+              {/* Card Heading */}
+              <h3
+                className="
+                  text-[18px]
+                  font-semibold
+                  leading-[25.6px]
+                  tracking-[0px]
+                  text-[#082D70]
+                "
+              >
+                {feature.title}
+              </h3>
 
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              Our team has extensive knowledge of UAE accounting, VAT, and
-              Corporate Tax regulations.
-            </p>
-          </div>
-
-          {/* =======================================================
-              FEATURE 2 - ACCURACY
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
-              className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
-              "
-            >
-              Accuracy You Can Trust
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              We maintain precise financial records to help you make informed
-              business decisions.
-            </p>
-          </div>
-
-          {/* =======================================================
-              FEATURE 3 - PERSONALIZED SERVICE
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
-              className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
-              "
-            >
-              Personalized Service
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              Every business is unique. Our solutions are tailored to your
-              specific business requirements.
-            </p>
-          </div>
-
-          {/* =======================================================
-              FEATURE 4 - COMPLETE COMPLIANCE
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
-              className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
-              "
-            >
-              Complete Compliance
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              We help businesses meet UAE tax laws and financial reporting
-              requirements.
-            </p>
-          </div>
-
-          {/* =======================================================
-              FEATURE 5 - CONFIDENTIALITY
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
-              className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
-              "
-            >
-              Confidentiality
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              Your financial information remains secure and confidential.
-            </p>
-          </div>
-
-          {/* =======================================================
-              FEATURE 6 - AFFORDABLE SOLUTIONS
-          ======================================================= */}
-          <div
-            className="
-              min-h-[104px]
-              rounded-[14px]
-              border
-              border-[#D5D5D5]
-              bg-white
-              px-12
-              py-5
-
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:shadow-md
-
-              max-[640px]:px-6
-            "
-          >
-            <h3
-              className="
-                text-[21px]
-                font-bold
-                leading-[1.25]
-                text-[#0a1628]
-              "
-            >
-              Affordable Solutions
-            </h3>
-
-            <p
-              className="
-                mt-1.5
-                text-[13px]
-                leading-[1.45]
-                text-[#555]
-              "
-            >
-              Professional accounting services designed to fit your business
-              budget.
-            </p>
-          </div>
+              {/* Card Description */}
+              <p
+                className="
+                  mt-1.5
+                  text-[18px]
+                  font-normal
+                  leading-[25.6px]
+                  tracking-[0px]
+                  text-[#444444]
+                "
+              >
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

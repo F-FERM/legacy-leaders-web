@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#5B5B5B] text-white">
+    <footer className="relative w-full overflow-hidden bg-[rgba(133,129,129,0.28)] text-black">
       {/* =========================================================
           MAIN FOOTER
       ========================================================= */}
@@ -59,7 +59,7 @@ const Footer = () => {
                 text-[14px]
                 font-normal
                 leading-[20px]
-                text-white/55
+                text-black
               "
             >
               Your trusted partner for professional accounting and bookkeeping
@@ -76,7 +76,7 @@ const Footer = () => {
                 text-[15px]
                 font-semibold
                 leading-[20px]
-                text-white
+                text-black
               "
             >
               Quick Links
@@ -90,10 +90,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Home
@@ -107,10 +107,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   About
@@ -124,10 +124,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Service
@@ -141,10 +141,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Blog
@@ -162,7 +162,7 @@ const Footer = () => {
                 text-[15px]
                 font-semibold
                 leading-[20px]
-                text-white
+                text-black
               "
             >
               Resources
@@ -176,10 +176,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   VAT Guide
@@ -193,10 +193,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Corporate Tax
@@ -210,10 +210,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Careers
@@ -231,7 +231,7 @@ const Footer = () => {
                 text-[15px]
                 font-semibold
                 leading-[20px]
-                text-white
+                text-black
               "
             >
               Links
@@ -245,10 +245,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Privacy Policy
@@ -262,10 +262,10 @@ const Footer = () => {
                     text-[14px]
                     font-normal
                     leading-[20px]
-                    text-white/45
+                    text-black/45
                     transition-colors
                     duration-200
-                    hover:text-white
+                    hover:text-black
                   "
                 >
                   Terms of Service
@@ -292,7 +292,7 @@ const Footer = () => {
               text-[12px]
               font-normal
               leading-[18px]
-              text-white/35
+              text-black/35
             "
           >
             © 2024 Legacy Leaders LLC. Professional Accounting &amp; Bookkeeping

@@ -41,7 +41,7 @@ export const Navbar = () => {
         w-full
         border-b
         border-white/10
-        bg-[rgba(60,60,60,0.28)]
+        bg-[rgba(243,238,238,0.28)]
         backdrop-blur-xl
         shadow-[0_4px_30px_rgba(0,0,0,0.15)]
       "

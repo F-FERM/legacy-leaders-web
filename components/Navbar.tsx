@@ -53,7 +53,7 @@ export const Navbar = () => {
         className="
           mx-auto
           flex
-          h-[75px]
+          h-[95px]
           max-w-[1300px]
           items-center
           justify-between
@@ -84,7 +84,7 @@ export const Navbar = () => {
               src="/logo.png"
               alt="Legacy Leaders"
               className="
-                h-[60px]
+                h-[90px]
                 w-auto
                 object-contain
 
@@ -135,7 +135,7 @@ export const Navbar = () => {
                           after:bg-[#003896]
                         `
                         : `
-                          !text-white
+                          !text-black
                           hover:!text-[#003896]
                         `
                     }

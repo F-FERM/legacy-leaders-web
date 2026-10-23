@@ -22,26 +22,83 @@ const legalLinks = [
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        className="h-[22px] w-[22px]"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        className="h-[22px] w-[22px]"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M14.5 8H13a2 2 0 0 0-2 2v10" />
+        <path d="M8.5 12h7" />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        className="h-[22px] w-[22px]"
+      >
+        <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.4H4.98V9.5h2.95v8.9ZM6.45 8.29a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42ZM19 18.4h-2.95v-4.33c0-1.03-.02-2.36-1.44-2.36-1.44 0-1.66 1.12-1.66 2.28v4.41H10V9.5h2.83v1.22h.04c.39-.7 1.35-1.44 2.78-1.44 2.98 0 3.53 1.96 3.53 4.51v4.61H19Z" />
+      </svg>
+    ),
+  },
+];
+
 const Footer = () => {
   const [email, setEmail] = useState("");
 
   const handleSubscribe = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Connect your newsletter API here.
     if (!email.trim()) return;
 
+    // Connect your newsletter API here.
     console.log("Newsletter subscription email:", email.trim());
   };
 
   return (
     <footer className="relative min-h-[595px] w-full overflow-hidden border-t border-white/20 bg-[#9A9A9A] text-white">
       {/* MAIN FOOTER CONTENT */}
-      <div className="relative z-10 mx-auto w-full max-w-[1920px] px-6 pb-7 pt-10 sm:px-8 lg:px-[68px] lg:pt-[52px]">
-        {/* TOP ROW: LOGO, DESCRIPTION AND SUBSCRIPTION */}
-        <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[1.15fr_0.9fr_1.05fr] lg:items-start lg:gap-x-[55px]">
+      <div className="relative z-10 mx-auto w-full max-w-[1920px] px-6 pb-5 pt-8 sm:px-8 lg:px-[68px] lg:pb-6 lg:pt-[52px]">
+        {/* TOP ROW */}
+        <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[480px_minmax(250px,1fr)_464px] lg:gap-x-[35px] xl:grid-cols-[480px_minmax(250px,1fr)_464px] xl:gap-x-[55px]">
           {/* COMPANY LOGO */}
-          <div className="flex items-center">
+          <div className="flex items-start">
             <Link
               href="/"
               aria-label="Legacy Leaders home"
@@ -59,8 +116,8 @@ const Footer = () => {
           </div>
 
           {/* COMPANY DESCRIPTION */}
-          <div className="max-w-[350px] pt-1">
-            <p className="text-[15px] font-normal leading-[1.55] tracking-[0.01em] text-white/80 sm:text-[16px]">
+          <div className="max-w-[350px] pt-[2px] lg:pt-[3px]">
+            <p className="text-[15px] font-normal leading-[1.5] tracking-[0.01em] text-white/80 sm:text-[16px]">
               Your trusted partner for professional accounting and bookkeeping
               services in the UAE.
             </p>
@@ -96,15 +153,32 @@ const Footer = () => {
           </form>
         </div>
 
-        {/* FOOTER LINK COLUMNS */}
-        <div className="relative mt-[26px] grid grid-cols-1 gap-6 border-t border-white/15 pt-[10px] sm:grid-cols-3 sm:gap-8 lg:mt-[20px] lg:grid-cols-3 lg:gap-x-10">
-          {/* QUICK LINKS */}
-          <div>
-            <h3 className="text-[15px] font-bold leading-6 text-white sm:text-[16px]">
+        {/* LINK HEADINGS WITH DIVIDER UNDERNEATH */}
+        <div className="mt-[22px] grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:mt-[20px] lg:grid-cols-3">
+          <div className="border-b border-white/15 pb-[1px]">
+            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
               Quick Links
             </h3>
+          </div>
 
-            <ul className="mt-[2px] space-y-[3px]">
+          <div className="border-b border-white/15 pb-[1px]">
+            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
+              Resources
+            </h3>
+          </div>
+
+          <div className="col-span-2 border-b border-white/15 pb-[1px] sm:col-span-1">
+            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
+              Links
+            </h3>
+          </div>
+        </div>
+
+        {/* LINK LISTS */}
+        <div className="grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:grid-cols-3">
+          {/* QUICK LINKS */}
+          <div>
+            <ul className="mt-[5px] space-y-[3px]">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -120,15 +194,11 @@ const Footer = () => {
 
           {/* RESOURCES */}
           <div>
-            <h3 className="text-[15px] font-bold leading-6 text-white sm:text-[16px]">
-              Resources
-            </h3>
-
-            <ul className="mt-[2px] space-y-[3px]">
+            <ul className="mt-[5px] space-y-[3px]">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={""}
+                    href={link.href}
                     className="text-[14px] font-medium leading-[1.65] text-white/75 transition-colors duration-200 hover:text-white sm:text-[15px]"
                   >
                     {link.label}
@@ -139,16 +209,12 @@ const Footer = () => {
           </div>
 
           {/* LEGAL LINKS */}
-          <div>
-            <h3 className="text-[15px] font-bold leading-6 text-white sm:text-[16px]">
-              Links
-            </h3>
-
-            <ul className="mt-[2px] space-y-[3px]">
+          <div className="col-span-2 sm:col-span-1">
+            <ul className="mt-[5px] space-y-[3px]">
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={""}
+                    href={link.href}
                     className="whitespace-nowrap text-[14px] font-medium leading-[1.65] text-white/75 transition-colors duration-200 hover:text-white sm:text-[15px]"
                   >
                     {link.label}
@@ -160,85 +226,25 @@ const Footer = () => {
         </div>
 
         {/* COPYRIGHT AND SOCIAL MEDIA */}
-        <div className="relative mt-[100px] flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center lg:mt-[100px]">
+        <div className="relative mt-[100px] flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
           <p className="text-[12px] font-normal leading-[1.7] text-white/75 sm:text-[13px]">
             © 2024 Legacy Leaders LLC. Professional Accounting &amp; Bookkeeping
             Services in the UAE.
           </p>
 
-          {/* SOCIAL MEDIA ICONS */}
           <div className="flex items-center gap-[25px]">
-            {/* INSTAGRAM */}
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-[#022764] transition-colors duration-200 hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="23"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-[#022764] transition-colors duration-200 hover:text-white"
               >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor" />
-              </svg>
-            </a>
-
-            {/* FACEBOOK */}
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-[#022764] transition-colors duration-200 hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="23"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M14.5 8H13a2 2 0 0 0-2 2v10" />
-                <path d="M8.5 12h7" />
-              </svg>
-            </a>
-
-            {/* LINKEDIN */}
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-[#022764] transition-colors duration-200 hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="23"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.4H4.98V9.5h2.95v8.9ZM6.45 8.29a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42ZM19 18.4h-2.95v-4.33c0-1.03-.02-2.36-1.44-2.36-1.44 0-1.66 1.12-1.66 2.28v4.41H10V9.5h2.83v1.22h.04c.39-.7 1.35-1.44 2.78-1.44 2.98 0 3.53 1.96 3.53 4.51v4.61H19Z" />
-              </svg>
-            </a>
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -1,160 +1,111 @@
 const AboutHero = () => {
   return (
-    <section className="w-full bg-white pt-[75px]">
-      <div
-        className="
-          mx-auto
-          flex
-          min-h-[560px]
-          max-w-[1500px]
-          items-center
-          px-6
-          py-12
-
-          sm:px-8
-          sm:py-14
-
-          lg:px-10
-          lg:py-16
-        "
-      >
-        <div
-          className="
-            grid
-            w-full
-            items-center
-            gap-10
-
-            lg:grid-cols-[minmax(0,1fr)_719px]
-            lg:gap-[40px]
-          "
-        >
-          {/* =========================================================
-              LEFT CONTENT
-          ========================================================= */}
+    <section className="w-full overflow-hidden bg-white pt-[75px]">
+      <div className="mx-auto w-full max-w-[1360px] px-5 pb-[70px] sm:px-8 lg:px-0">
+        {/* HERO CONTAINER */}
+        <div className="relative mx-auto w-full lg:h-[645px]">
+          {/* RIGHT IMAGE */}
           <div
             className="
+              relative
+              z-0
+              ml-auto
+              h-[280px]
               w-full
-              max-w-[720px]
+              overflow-hidden
+              rounded-[22px]
+              sm:h-[380px]
+              sm:rounded-[28px]
+              lg:absolute
+              lg:right-[64px]
+              lg:top-[53px]
+              lg:h-[467.69px]
+              lg:w-[719px]
+              lg:rounded-[30px]
             "
           >
-            {/* =======================================================
-                LABEL
-            ======================================================= */}
-            <p
-              className="
-                mb-5
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.2em]
-                text-[#003896]
+            <img
+              src="/about-hero.jpg"
+              alt="Professionals discussing business and financial strategy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
 
-                sm:text-[11px]
-
-                lg:text-[11px]
-              "
-            >
+          {/* OVERLAPPING GLASS CARD */}
+          <div
+            className="
+              relative
+              z-10
+              -mt-8
+              flex
+              w-full
+              flex-col
+              gap-[18px]
+              rounded-[24px]
+              border
+              border-transparent
+              px-6
+              py-6
+              sm:-mt-12
+              sm:px-8
+              sm:py-8
+              lg:absolute
+              lg:left-[1px]
+              lg:top-[128px]
+              lg:mt-0
+              lg:h-[507.69px]
+              lg:w-[723px]
+              lg:gap-[22px]
+              lg:rounded-[30px]
+              lg:px-[30px]
+              lg:py-[20px]
+            "
+            style={{
+              background:
+                "linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)) padding-box, linear-gradient(230.89deg, #022764 -1.45%, rgba(4,79,202,0) 66.39%) border-box",
+              backdropFilter: "blur(4px)",
+              WebkitBackdropFilter: "blur(4px)",
+            }}
+          >
+            {/* LABEL */}
+            <p className="shrink-0 text-[10px] font-semibold uppercase leading-[1.4] tracking-[0.15em] text-[#003896] sm:text-[11px]">
               About Legacy Leaders LLC
             </p>
 
-            {/* =======================================================
-                HEADING
-            ======================================================= */}
+            {/* HEADING */}
             <h1
               className="
-                text-[42px]
+                shrink-0
+                text-[34px]
                 font-semibold
-                leading-[1.2]
-                tracking-[-0.96px]
+                leading-[1.3]
+                tracking-[-0.8px]
                 text-black
-
-                sm:text-[52px]
-                sm:leading-[1.2]
-
-                md:text-[60px]
-                md:leading-[1.25]
-
-                lg:text-[70px]
-                lg:leading-[98px]
+                sm:text-[46px]
+                sm:leading-[1.35]
+                lg:text-[60px]
+                lg:leading-[1.4]
+                lg:tracking-[-1.5px]
               "
             >
-              <span className="block whitespace-nowrap">
+              <span className="block whitespace-normal lg:whitespace-nowrap">
                 Building Financial
               </span>
-
-              <span className="block whitespace-nowrap">
+              <span className="block whitespace-normal lg:whitespace-nowrap">
                 Clarity. Supporting
               </span>
-
-              <span className="block whitespace-nowrap">Business Growth.</span>
+              <span className="block whitespace-normal lg:whitespace-nowrap">
+                Business Growth.
+              </span>
             </h1>
 
-            {/* =======================================================
-                DESCRIPTION
-            ======================================================= */}
-            <p
-              className="
-                mt-6
-                max-w-[600px]
-                text-[16px]
-                font-normal
-                leading-[25.6px]
-                tracking-normal
-                text-[#555]
-
-                sm:text-[17px]
-                sm:leading-[27px]
-
-                lg:text-[18px]
-                lg:leading-[28px]
-              "
-            >
+            {/* DESCRIPTION */}
+            <p className="max-w-[550px] text-[14px] font-normal leading-[1.6] text-[#50505a] sm:text-[15px] lg:text-[16px]">
               Legacy Leaders LLC is a professional accounting and bookkeeping
               firm based in the UAE, helping businesses maintain financial
               clarity, meet compliance requirements, and build a stronger
               foundation for sustainable growth.
             </p>
-          </div>
-
-          {/* =========================================================
-              RIGHT IMAGE
-          ========================================================= */}
-          <div
-            className="
-              flex
-              w-full
-              justify-center
-
-              lg:justify-end
-            "
-          >
-            <div
-              className="
-                h-auto
-                w-full
-                max-w-[719px]
-                overflow-hidden
-                rounded-[30px]
-                p-[10px]
-
-                lg:h-[467.69px]
-                lg:w-[719px]
-                lg:max-w-[719px]
-              "
-            >
-              <img
-                src="/about-hero.jpg"
-                alt="Legacy Leaders professional accounting team"
-                className="
-                  h-full
-                  w-full
-                  rounded-[20px]
-                  object-cover
-                  object-center
-                "
-              />
-            </div>
           </div>
         </div>
       </div>

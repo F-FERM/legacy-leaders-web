@@ -6,7 +6,7 @@ const HomeAboutSection = () => {
         src="/home-about/logo.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[3%] top-0 z-0 h-[320px] w-[350px] object-contain opacity-[11] sm:h-[400px] sm:w-[430px] lg:right-[4%] lg:top-0 lg:h-[460px] lg:w-[500px]"
+        className="pointer-events-none absolute right-[3%] top-0 z-0 h-[320px] w-[350px] object-contain opacity-[0.15] sm:h-[400px] sm:w-[430px] lg:right-[4%] lg:top-0 lg:h-[460px] lg:w-[500px]"
       />
 
       {/* MAIN CONTAINER */}

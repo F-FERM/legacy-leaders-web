@@ -3,7 +3,6 @@ import CoreServices from "@/components/Home/CoreServices";
 import Hero from "@/components/Home/Hero";
 import HomeAboutSection from "@/components/Home/HomeAbout";
 import HomeVisionMission from "@/components/Home/HomeVisionMission";
-import IndustriesSection from "@/components/Home/IndustriesSection";
 import IndustriesWeServeSection from "@/components/Home/IndustriesWeServeSection";
 import RecentArticles from "@/components/Home/RecentArticles";
 import VisionMission from "@/components/Home/VisionMission";
@@ -19,7 +18,6 @@ const Home = () => {
       <WhyLegacyLeaders />
       <IndustriesWeServeSection/>
       <HomeVisionMission/>
-      <IndustriesSection />
       <RecentArticles />
       <ContactFormSection />
     </main>

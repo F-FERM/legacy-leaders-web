@@ -92,11 +92,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative min-h-[595px] w-full overflow-hidden border-t border-white/20 bg-[#9A9A9A] text-white">
+    <footer className="relative min-h-[560px] w-full overflow-hidden border-t border-white/20 bg-[#9A9A9A] text-white sm:min-h-[575px] lg:min-h-[625px]">
       {/* MAIN FOOTER CONTENT */}
-      <div className="relative z-10 mx-auto w-full max-w-[1920px] px-6 pb-5 pt-8 sm:px-8 lg:px-[68px] lg:pb-6 lg:pt-[52px]">
+      <div className="relative z-10 mx-auto w-full max-w-[1920px] px-5 pb-[95px] pt-6 sm:px-8 sm:pb-[110px] sm:pt-7 lg:px-[68px] lg:pb-[145px] lg:pt-[52px]">
         {/* TOP ROW */}
-        <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[480px_minmax(250px,1fr)_464px] lg:gap-x-[35px] xl:grid-cols-[480px_minmax(250px,1fr)_464px] xl:gap-x-[55px]">
+        <div className="grid grid-cols-1 items-start gap-5 sm:gap-6 lg:grid-cols-[minmax(0,480px)_minmax(250px,1fr)_minmax(360px,464px)] lg:gap-x-[35px] lg:gap-y-7 xl:gap-x-[55px]">
           {/* COMPANY LOGO */}
           <div className="flex items-start">
             <Link
@@ -110,14 +110,14 @@ const Footer = () => {
                 width={480}
                 height={170}
                 priority
-                className="h-auto w-[280px] object-contain sm:w-[340px] lg:w-[480px]"
+                className="h-auto w-[250px] object-contain sm:w-[320px] lg:w-[480px]"
               />
             </Link>
           </div>
 
           {/* COMPANY DESCRIPTION */}
           <div className="max-w-[350px] pt-[2px] lg:pt-[3px]">
-            <p className="text-[15px] font-normal leading-[1.5] tracking-[0.01em] text-white/80 sm:text-[16px]">
+            <p className="text-[14px] font-normal leading-[1.5] tracking-[0.01em] text-white/80 sm:text-[15px] lg:text-[16px]">
               Your trusted partner for professional accounting and bookkeeping
               services in the UAE.
             </p>
@@ -126,7 +126,7 @@ const Footer = () => {
           {/* NEWSLETTER SUBSCRIPTION */}
           <form
             onSubmit={handleSubscribe}
-            className="flex w-full items-center gap-[10px] lg:pt-[2px]"
+            className="flex w-full items-center gap-[8px] lg:gap-[10px] lg:pt-[2px]"
           >
             <label htmlFor="footer-email" className="sr-only">
               Email address
@@ -141,49 +141,49 @@ const Footer = () => {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
-              className="h-[45px] min-w-0 flex-1 rounded-[9px] border border-white/10 bg-white/45 px-[25px] text-[14px] text-[#14243A] outline-none transition placeholder:text-[#858585] focus:border-[#022764] focus:bg-white/65"
+              className="h-[42px] min-w-0 flex-1 rounded-[9px] border border-white/10 bg-white/45 px-4 text-[14px] text-[#14243A] outline-none transition placeholder:text-[#858585] focus:border-[#022764] focus:bg-white/65 sm:h-[44px] sm:px-[20px] lg:h-[45px] lg:px-[25px]"
             />
 
             <button
               type="submit"
-              className="h-[45px] shrink-0 rounded-[13px] bg-[#022764] px-[22px] text-[14px] font-semibold tracking-[0.02em] text-white transition-colors duration-200 hover:bg-[#003896] sm:px-[25px]"
+              className="h-[42px] shrink-0 rounded-[11px] bg-[#022764] px-4 text-[13px] font-semibold tracking-[0.02em] text-white transition-colors duration-200 hover:bg-[#003896] sm:h-[44px] sm:px-5 sm:text-[14px] lg:h-[45px] lg:rounded-[13px] lg:px-[25px]"
             >
               Subscribe
             </button>
           </form>
         </div>
 
-        {/* LINK HEADINGS WITH DIVIDER UNDERNEATH */}
-        <div className="mt-[22px] grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:mt-[20px] lg:grid-cols-3">
+        {/* LINK HEADINGS */}
+        <div className="mt-5 grid grid-cols-2 gap-x-6 sm:mt-6 sm:grid-cols-3 sm:gap-x-8 lg:mt-[20px] lg:grid-cols-3">
           <div className="border-b border-white/15 pb-[1px]">
-            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
+            <h3 className="text-[14px] font-bold leading-[22px] text-white sm:text-[15px] lg:text-[16px]">
               Quick Links
             </h3>
           </div>
 
           <div className="border-b border-white/15 pb-[1px]">
-            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
+            <h3 className="text-[14px] font-bold leading-[22px] text-white sm:text-[15px] lg:text-[16px]">
               Resources
             </h3>
           </div>
 
           <div className="col-span-2 border-b border-white/15 pb-[1px] sm:col-span-1">
-            <h3 className="text-[15px] font-bold leading-[22px] text-white sm:text-[16px]">
+            <h3 className="text-[14px] font-bold leading-[22px] text-white sm:text-[15px] lg:text-[16px]">
               Links
             </h3>
           </div>
         </div>
 
         {/* LINK LISTS */}
-        <div className="grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-x-6 sm:grid-cols-3 sm:gap-x-8 lg:grid-cols-3">
           {/* QUICK LINKS */}
           <div>
-            <ul className="mt-[5px] space-y-[3px]">
+            <ul className="mt-[5px] space-y-[2px]">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[14px] font-medium leading-[1.65] text-white/75 transition-colors duration-200 hover:text-white sm:text-[15px]"
+                    className="text-[13px] font-medium leading-[1.6] text-white/75 transition-colors duration-200 hover:text-white sm:text-[14px] lg:text-[15px]"
                   >
                     {link.label}
                   </Link>
@@ -194,12 +194,12 @@ const Footer = () => {
 
           {/* RESOURCES */}
           <div>
-            <ul className="mt-[5px] space-y-[3px]">
+            <ul className="mt-[5px] space-y-[2px]">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={link.href}
-                    className="text-[14px] font-medium leading-[1.65] text-white/75 transition-colors duration-200 hover:text-white sm:text-[15px]"
+                    href={""}
+                    className="text-[13px] font-medium leading-[1.6] text-white/75 transition-colors duration-200 hover:text-white sm:text-[14px] lg:text-[15px]"
                   >
                     {link.label}
                   </Link>
@@ -210,12 +210,12 @@ const Footer = () => {
 
           {/* LEGAL LINKS */}
           <div className="col-span-2 sm:col-span-1">
-            <ul className="mt-[5px] space-y-[3px]">
+            <ul className="mt-[5px] space-y-[2px]">
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    href={link.href}
-                    className="whitespace-nowrap text-[14px] font-medium leading-[1.65] text-white/75 transition-colors duration-200 hover:text-white sm:text-[15px]"
+                    href={""}
+                    className="whitespace-nowrap text-[13px] font-medium leading-[1.6] text-white/75 transition-colors duration-200 hover:text-white sm:text-[14px] lg:text-[15px]"
                   >
                     {link.label}
                   </Link>
@@ -226,13 +226,13 @@ const Footer = () => {
         </div>
 
         {/* COPYRIGHT AND SOCIAL MEDIA */}
-        <div className="relative mt-[100px] flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
-          <p className="text-[12px] font-normal leading-[1.7] text-white/75 sm:text-[13px]">
+        <div className="relative mt-10 flex flex-col items-start justify-between gap-4 sm:mt-12 sm:flex-row sm:items-center sm:gap-5 lg:mt-[100px]">
+          <p className="max-w-full text-[11px] font-normal leading-[1.6] text-white/75 sm:text-[12px] lg:text-[13px]">
             © 2024 Legacy Leaders LLC. Professional Accounting &amp; Bookkeeping
             Services in the UAE.
           </p>
 
-          <div className="flex items-center gap-[25px]">
+          <div className="flex items-center gap-[22px]">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -249,12 +249,24 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* LARGE DECORATIVE BACKGROUND BRANDING */}
+      {/* RESPONSIVE DECORATIVE BACKGROUND BRANDING */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-36px] left-1/2 z-0 w-full -translate-x-1/2 overflow-hidden select-none"
+        className="pointer-events-none absolute bottom-0 left-0 z-0 flex h-[58px] w-full items-end justify-center overflow-hidden select-none sm:h-[78px] md:h-[100px] lg:h-[145px]"
       >
-        <div className="whitespace-nowrap text-center font-serif text-[76px] font-bold leading-[0.9] tracking-[-0.035em] text-[#022764]/10 sm:text-[110px] md:text-[145px] lg:text-[165px] xl:text-[180px]">
+        <div
+          className="
+            w-full whitespace-nowrap text-center
+            font-serif font-bold leading-[0.9]
+            tracking-[-0.055em]
+            text-[#022764]/10
+            text-[9.2vw]
+            sm:text-[clamp(55px,7.5vw,110px)]
+            md:text-[145px]
+            lg:text-[165px]
+            xl:text-[180px]
+          "
+        >
           LEGACY LEADERS
         </div>
       </div>

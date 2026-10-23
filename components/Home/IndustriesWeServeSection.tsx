@@ -1,19 +1,19 @@
 const IndustriesWeServeSection = () => {
   return (
-    <section className="w-full bg-white py-[60px] sm:py-[72px]">
+    <section className="w-full bg-white py-[64px] sm:py-[80px] lg:py-[90px]">
       <div className="mx-auto w-full max-w-[1030px] px-5 sm:px-8 lg:px-0">
         {/* SECTION LABEL */}
-        <p className="mb-[10px] text-[9px] font-semibold uppercase tracking-[0.14em] text-[#003896]">
+        <p className="mb-[16px] text-[14px] font-semibold uppercase tracking-[0.14em] text-[#003896] sm:text-[15px]">
           Industries We Serve
         </p>
 
         {/* MAIN HEADING */}
-        <h2 className="mb-[8px] text-[28px] font-bold leading-[1.2] tracking-[-0.6px] text-[#142235] sm:text-[32px] lg:text-[32px]">
+        <h2 className="mb-[20px] text-[32px] font-bold leading-[1.2] tracking-[-0.7px] text-[#142235] sm:text-[38px] lg:text-[44px]">
           Business Consulting &amp; Leadership Advisory
         </h2>
 
         {/* INTRODUCTION */}
-        <div className="space-y-[3px] text-[11px] leading-[1.65] text-[#55555e] sm:text-[11.5px]">
+        <div className="space-y-[18px] text-[16px] leading-[1.9] text-[#55555e] sm:text-[17px] lg:text-[18px]">
           <p>
             Finding the right business consulting partner can make the
             difference between a business that simply operates and one that
@@ -37,12 +37,12 @@ const IndustriesWeServeSection = () => {
         </div>
 
         {/* BUSINESS CONSULTING */}
-        <div className="mt-[6px]">
-          <h3 className="mb-[3px] text-[13px] font-bold leading-[1.4] text-[#142235]">
+        <div className="mt-[30px]">
+          <h3 className="mb-[12px] text-[20px] font-bold leading-[1.45] text-[#142235] sm:text-[22px]">
             Comprehensive Business Consulting &amp; Strategic Solutions
           </h3>
 
-          <p className="text-[11px] leading-[1.65] text-[#55555e] sm:text-[11.5px]">
+          <p className="text-[16px] leading-[1.9] text-[#55555e] sm:text-[17px] lg:text-[18px]">
             Legacy Leaders offers business-focused solutions designed to support
             organizations at every stage of their journey. From strategic
             planning and operational improvement to leadership development and
@@ -56,12 +56,12 @@ const IndustriesWeServeSection = () => {
         </div>
 
         {/* WHY LEGACY LEADERS */}
-        <div className="mt-[6px]">
-          <h3 className="mb-[3px] text-[13px] font-bold leading-[1.4] text-[#142235]">
+        <div className="mt-[30px]">
+          <h3 className="mb-[12px] text-[20px] font-bold leading-[1.45] text-[#142235] sm:text-[22px]">
             Why Choose Legacy Leaders as Your Business Growth Partner?
           </h3>
 
-          <p className="text-[11px] leading-[1.65] text-[#55555e] sm:text-[11.5px]">
+          <p className="text-[16px] leading-[1.9] text-[#55555e] sm:text-[17px] lg:text-[18px]">
             Choosing the right advisory partner requires more than industry
             knowledge. It requires a team that understands your vision,
             recognizes your challenges, and works alongside you to achieve
@@ -75,12 +75,12 @@ const IndustriesWeServeSection = () => {
         </div>
 
         {/* SUSTAINABLE SUCCESS */}
-        <div className="mt-[6px]">
-          <h3 className="mb-[3px] text-[13px] font-bold leading-[1.4] text-[#142235]">
+        <div className="mt-[30px]">
+          <h3 className="mb-[12px] text-[20px] font-bold leading-[1.45] text-[#142235] sm:text-[22px]">
             Building a Legacy of Sustainable Success
           </h3>
 
-          <p className="text-[11px] leading-[1.65] text-[#55555e] sm:text-[11.5px]">
+          <p className="text-[16px] leading-[1.9] text-[#55555e] sm:text-[17px] lg:text-[18px]">
             Our vision is to help businesses and leaders build a lasting legacy
             through strategic thinking, responsible leadership, and sustainable
             growth. We believe long-term success comes from combining a clear
@@ -92,7 +92,7 @@ const IndustriesWeServeSection = () => {
         </div>
 
         {/* CLOSING PARAGRAPHS */}
-        <div className="mt-[16px] space-y-[16px] text-[11px] leading-[1.65] text-[#55555e] sm:text-[11.5px]">
+        <div className="mt-[36px] space-y-[24px] text-[16px] leading-[1.9] text-[#55555e] sm:text-[17px] lg:text-[18px]">
           <p>
             Trust, integrity, and commitment are at the heart of every
             relationship we build. We take the time to understand your

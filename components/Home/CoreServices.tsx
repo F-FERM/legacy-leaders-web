@@ -111,43 +111,43 @@ const CoreServices = () => {
               tabIndex={0}
               className="group relative flex h-[380px] w-full max-w-[472px] cursor-pointer flex-col overflow-hidden rounded-[30px] border border-[#d4d6de] bg-white p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#c7d5f2] hover:shadow-[0_12px_35px_rgba(10,35,75,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#003896]"
             >
-              {/* HOVER BACKGROUND IMAGE */}
+              {/* BACKGROUND IMAGE: VISIBLE INITIALLY */}
               <div
-                className="absolute inset-0 z-0 scale-100 bg-cover bg-center opacity-0 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-100 group-focus-visible:scale-105 group-focus-visible:opacity-100"
+                className="absolute inset-0 z-0 scale-105 bg-cover bg-center opacity-100 transition-all duration-700 ease-out group-hover:scale-100 group-hover:opacity-0 group-focus-visible:scale-100 group-focus-visible:opacity-0"
                 style={{
                   backgroundImage: `url("${service.image}")`,
                 }}
               />
 
-              {/* LIGHT OVERLAY */}
-              <div className="absolute inset-0 z-[1] bg-[#071b35]/25 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" />
+              {/* DARK OVERLAY: VISIBLE INITIALLY */}
+              <div className="absolute inset-0 z-[1] bg-[#071b35]/25 opacity-100 transition-opacity duration-500 group-hover:opacity-0 group-focus-visible:opacity-0" />
 
-              {/* BOTTOM GRADIENT */}
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#071b35]/65 via-transparent to-[#071b35]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100" />
+              {/* BOTTOM GRADIENT: VISIBLE INITIALLY */}
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#071b35]/75 via-[#071b35]/20 to-[#071b35]/10 opacity-100 transition-opacity duration-500 group-hover:opacity-0 group-focus-visible:opacity-0" />
 
               {/* CARD CONTENT */}
               <div className="relative z-[2] flex h-full flex-col gap-[25px]">
                 {/* ANIMATED ICON */}
-                <div className="relative flex h-[54px] w-[54px] shrink-0 items-center justify-center overflow-visible rounded-[10px] bg-[#e6edff] transition-colors duration-300 group-hover:bg-transparent group-focus-visible:bg-transparent">
-                  {/* NORMAL ICON */}
-                  <img
-                    src={service.icon}
-                    alt=""
-                    aria-hidden="true"
-                    className="absolute h-[36px] w-[36px] scale-100 rotate-0 object-contain opacity-100 transition-all duration-500 ease-out group-hover:scale-50 group-hover:-rotate-12 group-hover:opacity-0 group-focus-visible:scale-50 group-focus-visible:opacity-0"
-                  />
-
-                  {/* HOVER ICON */}
+                <div className="relative flex h-[54px] w-[54px] shrink-0 items-center justify-center overflow-visible rounded-[10px] bg-transparent transition-colors duration-300 group-hover:bg-[#e6edff] group-focus-visible:bg-[#e6edff]">
+                  {/* HOVER ICON: SHOWN INITIALLY */}
                   <img
                     src={service.hoverIcon}
                     alt=""
                     aria-hidden="true"
-                    className="absolute h-[42px] w-[42px] translate-y-2 scale-50 rotate-12 object-contain opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:scale-100 group-focus-visible:rotate-0 group-focus-visible:opacity-100"
+                    className="absolute h-[42px] w-[42px] translate-y-0 scale-100 rotate-0 object-contain opacity-100 transition-all duration-500 ease-out group-hover:translate-y-2 group-hover:scale-50 group-hover:rotate-12 group-hover:opacity-0 group-focus-visible:translate-y-2 group-focus-visible:scale-50 group-focus-visible:opacity-0"
+                  />
+
+                  {/* NORMAL ICON: SHOWN ON HOVER */}
+                  <img
+                    src={service.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute h-[36px] w-[36px] scale-50 -rotate-12 object-contain opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:rotate-0 group-hover:opacity-100 group-focus-visible:scale-100 group-focus-visible:rotate-0 group-focus-visible:opacity-100"
                   />
                 </div>
 
                 {/* SERVICE TITLE */}
-                <h3 className="text-[21px] font-semibold leading-[1.35] tracking-[-0.3px] text-[#14243a] transition-colors duration-300 group-hover:text-white group-focus-visible:text-white sm:text-[22px]">
+                <h3 className="text-[21px] font-semibold leading-[1.35] tracking-[-0.3px] text-white transition-colors duration-300 group-hover:text-[#14243a] group-focus-visible:text-[#14243a] sm:text-[22px]">
                   {service.title}
                 </h3>
 
@@ -156,7 +156,7 @@ const CoreServices = () => {
                   {service.items.map((item, index) => (
                     <li
                       key={`${service.title}-${index}`}
-                      className="flex items-start gap-[7px] text-[14px] leading-[1.55] text-[#484852] transition-colors duration-300 group-hover:text-white group-focus-visible:text-white sm:text-[15px]"
+                      className="flex items-start gap-[7px] text-[14px] leading-[1.55] text-white transition-colors duration-300 group-hover:text-[#484852] group-focus-visible:text-[#484852] sm:text-[15px]"
                     >
                       <img
                         src="/icons/arrow.png"

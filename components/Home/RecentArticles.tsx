@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const articles = [
   {
@@ -60,85 +60,167 @@ const articles = [
   },
 ];
 
+const AUTO_SCROLL_INTERVAL = 1500;
+const CARDS_PER_SCROLL = 2;
+const PROGRESS_THUMB_WIDTH = 38;
+
 const RecentArticles = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const isDraggingCards = useRef(false);
-  const cardDragStartX = useRef(0);
-  const cardStartScroll = useRef(0);
-  const cardDragMoved = useRef(false);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+  const dragMoved = useRef(false);
   const suppressClick = useRef(false);
-
-  const isDraggingThumb = useRef(false);
-  const thumbStartX = useRef(0);
-  const thumbStartScroll = useRef(0);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pauseAutoScroll = useRef(false);
 
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
-  const updateProgress = () => {
+  // Keep the progress indicator synchronized with the carousel.
+  const updateProgress = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
 
     const maxScroll = container.scrollWidth - container.clientWidth;
 
-    setScrollProgress(maxScroll > 0 ? container.scrollLeft / maxScroll : 0);
-  };
+    setScrollProgress(
+      maxScroll > 0
+        ? Math.min(1, Math.max(0, container.scrollLeft / maxScroll))
+        : 0,
+    );
+  }, []);
 
-  // Drag the article cards with the mouse.
-  const handleCardsPointerDown = (
-    event: React.PointerEvent<HTMLDivElement>,
-  ) => {
-    if (event.pointerType === "touch") return;
-    if (event.button !== 0) return;
+  // Automatically scroll forward by two cards every 1.5 seconds.
+  const scrollToNextCards = useCallback(() => {
+    const container = scrollRef.current;
+
+    if (!container || isDragging.current || pauseAutoScroll.current) {
+      return;
+    }
+
+    const cards = Array.from(
+      container.querySelectorAll<HTMLElement>("article"),
+    );
+
+    if (cards.length === 0) return;
+
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if (maxScroll <= 0) return;
+
+    // Find the first card that has not yet reached the current scroll position.
+    const nextCardIndex = cards.findIndex(
+      (card) => card.offsetLeft > container.scrollLeft + 10,
+    );
+
+    const currentIndex =
+      nextCardIndex === -1 ? cards.length - 1 : nextCardIndex - 1;
+
+    const targetIndex = currentIndex + CARDS_PER_SCROLL;
+
+    // Loop back to the beginning after reaching the end.
+    if (
+      nextCardIndex === -1 ||
+      targetIndex >= cards.length ||
+      container.scrollLeft >= maxScroll - 10
+    ) {
+      container.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    const targetCard = cards[targetIndex];
+
+    container.scrollTo({
+      left: Math.min(targetCard.offsetLeft, maxScroll),
+      behavior: "smooth",
+    });
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(
+      scrollToNextCards,
+      AUTO_SCROLL_INTERVAL,
+    );
+
+    return () => window.clearInterval(interval);
+  }, [scrollToNextCards]);
+
+  // Resume automatic scrolling after the user finishes dragging.
+  const pauseAndResumeAutoScroll = useCallback(() => {
+    pauseAutoScroll.current = true;
+
+    if (resumeTimer.current) {
+      clearTimeout(resumeTimer.current);
+    }
+
+    resumeTimer.current = setTimeout(() => {
+      pauseAutoScroll.current = false;
+    }, AUTO_SCROLL_INTERVAL);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (resumeTimer.current) {
+        clearTimeout(resumeTimer.current);
+      }
+    };
+  }, []);
+
+  // Hold and drag the cards with the mouse.
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
 
     const target = event.target as HTMLElement;
 
-    // Let links and other interactive elements handle their own clicks.
+    // Preserve normal clicks on article links.
     if (target.closest("a, button")) return;
 
     const container = scrollRef.current;
     if (!container) return;
 
-    isDraggingCards.current = true;
-    cardDragMoved.current = false;
-    cardDragStartX.current = event.clientX;
-    cardStartScroll.current = container.scrollLeft;
+    if (resumeTimer.current) {
+      clearTimeout(resumeTimer.current);
+    }
+
+    pauseAutoScroll.current = true;
+    isDragging.current = true;
+    dragMoved.current = false;
+    dragStartX.current = event.clientX;
+    dragStartScroll.current = container.scrollLeft;
 
     container.setPointerCapture(event.pointerId);
   };
 
-  const handleCardsPointerMove = (
-    event: React.PointerEvent<HTMLDivElement>,
-  ) => {
-    if (!isDraggingCards.current) return;
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
 
     const container = scrollRef.current;
     if (!container) return;
 
-    const deltaX = event.clientX - cardDragStartX.current;
+    const deltaX = event.clientX - dragStartX.current;
 
     if (Math.abs(deltaX) > 4) {
-      cardDragMoved.current = true;
+      dragMoved.current = true;
     }
 
-    if (cardDragMoved.current) {
-      container.scrollLeft = cardStartScroll.current - deltaX;
+    if (dragMoved.current) {
+      container.scrollLeft = dragStartScroll.current - deltaX;
       updateProgress();
     }
   };
 
-  const finishCardDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!isDraggingCards.current) return;
+  const handlePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
 
-    isDraggingCards.current = false;
+    isDragging.current = false;
 
-    if (cardDragMoved.current) {
+    if (dragMoved.current) {
       suppressClick.current = true;
 
-      // Allow the browser's pointer/click sequence to finish before
-      // re-enabling clicks on article links.
       window.setTimeout(() => {
         suppressClick.current = false;
       }, 0);
@@ -149,9 +231,18 @@ const RecentArticles = () => {
     if (container?.hasPointerCapture(event.pointerId)) {
       container.releasePointerCapture(event.pointerId);
     }
+
+    pauseAndResumeAutoScroll();
   };
 
-  const handleCardsClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleLostPointerCapture = () => {
+    if (!isDragging.current) return;
+
+    isDragging.current = false;
+    pauseAndResumeAutoScroll();
+  };
+
+  const handleClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!suppressClick.current) return;
 
     event.preventDefault();
@@ -159,89 +250,10 @@ const RecentArticles = () => {
     suppressClick.current = false;
   };
 
-  // Drag the scrollbar thumb.
-  const handleThumbPointerDown = (
-    event: React.PointerEvent<HTMLDivElement>,
-  ) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const container = scrollRef.current;
-    const thumb = event.currentTarget;
-
-    if (!container) return;
-
-    isDraggingThumb.current = true;
-    setIsDragging(true);
-
-    thumbStartX.current = event.clientX;
-    thumbStartScroll.current = container.scrollLeft;
-
-    thumb.setPointerCapture(event.pointerId);
-  };
-
-  const handleThumbPointerMove = (
-    event: React.PointerEvent<HTMLDivElement>,
-  ) => {
-    if (!isDraggingThumb.current) return;
-
-    const container = scrollRef.current;
-    const track = trackRef.current;
-
-    if (!container || !track) return;
-
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    const thumbWidth = track.clientWidth * 0.38;
-    const availableTrack = track.clientWidth - thumbWidth;
-
-    if (availableTrack <= 0 || maxScroll <= 0) return;
-
-    const deltaX = event.clientX - thumbStartX.current;
-    const scrollDelta = (deltaX / availableTrack) * maxScroll;
-
-    container.scrollLeft = Math.max(
-      0,
-      Math.min(maxScroll, thumbStartScroll.current + scrollDelta),
-    );
-
-    updateProgress();
-  };
-
-  const handleThumbPointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
-    isDraggingThumb.current = false;
-    setIsDragging(false);
-
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-  };
-
-  // Click anywhere on the scrollbar track to jump.
-  const handleTrackClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (event.target !== event.currentTarget) return;
-
-    const container = scrollRef.current;
-    const track = trackRef.current;
-
-    if (!container || !track) return;
-
-    const rect = track.getBoundingClientRect();
-    const clickPosition = Math.max(
-      0,
-      Math.min(1, (event.clientX - rect.left) / rect.width),
-    );
-
-    const maxScroll = container.scrollWidth - container.clientWidth;
-
-    container.scrollTo({
-      left: clickPosition * maxScroll,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section className="w-full bg-white py-12 sm:py-16 lg:py-[65px]">
       <div className="mx-auto w-full max-w-[1500px] px-5 sm:px-8 lg:px-10">
+        {/* SECTION HEADING */}
         <div className="mb-7 sm:mb-8">
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.6px] text-[#14243A] sm:text-[36px] lg:text-[40px]">
             Recent Articles
@@ -252,25 +264,24 @@ const RecentArticles = () => {
         <div
           ref={scrollRef}
           onScroll={updateProgress}
-          onPointerDown={handleCardsPointerDown}
-          onPointerMove={handleCardsPointerMove}
-          onPointerUp={finishCardDrag}
-          onPointerCancel={finishCardDrag}
-          onLostPointerCapture={() => {
-            isDraggingCards.current = false;
-          }}
-          onClickCapture={handleCardsClickCapture}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onLostPointerCapture={handleLostPointerCapture}
+          onClickCapture={handleClickCapture}
           className={`flex snap-x snap-mandatory gap-[24px] overflow-x-auto overflow-y-hidden pb-2 select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-[30px] ${
-            isDraggingCards.current ? "cursor-grabbing" : "cursor-grab"
+            isDragging.current ? "cursor-grabbing" : "cursor-grab"
           }`}
           style={{
-            touchAction: "pan-x pan-y",
+            touchAction: "pan-y",
             WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
           }}
         >
           {articles.map((article) => (
             <article
-              key={article.title}
+              key={article.href}
               className="group relative flex h-[500px] w-[min(461px,calc(100vw-40px))] flex-none snap-start flex-col overflow-hidden rounded-[30px] border border-[#606060] bg-[#071b35]"
             >
               <img
@@ -303,7 +314,7 @@ const RecentArticles = () => {
 
                 <Link
                   draggable={false}
-                  href={""}
+                  href={article.href}
                   className="mt-[3px] inline-flex w-fit items-center gap-2 text-[14px] font-bold leading-[1.4] text-[#ff333d] transition-all duration-300 hover:gap-3 hover:text-[#ff6269] sm:text-[15px]"
                 >
                   Read More
@@ -314,35 +325,19 @@ const RecentArticles = () => {
           ))}
         </div>
 
-        {/* DRAGGABLE SCROLLBAR */}
-        <div className="mx-auto mt-[35px] w-full max-w-[535px]">
-          <div
-            ref={trackRef}
-            role="scrollbar"
-            aria-label="Scroll recent articles"
-            aria-orientation="horizontal"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(scrollProgress * 100)}
-            onClick={handleTrackClick}
-            className="relative h-[6px] w-full cursor-pointer touch-none rounded-full bg-[#dedede]"
-          >
+        {/* READ-ONLY SCROLL PROGRESS BAR */}
+        <div
+          className="mx-auto mt-[35px] w-full max-w-[535px]"
+          aria-hidden="true"
+        >
+          <div className="relative h-[6px] w-full overflow-hidden rounded-full bg-[#dedede]">
             <div
-              onPointerDown={handleThumbPointerDown}
-              onPointerMove={handleThumbPointerMove}
-              onPointerUp={handleThumbPointerUp}
-              onPointerCancel={handleThumbPointerUp}
-              onLostPointerCapture={() => {
-                isDraggingThumb.current = false;
-                setIsDragging(false);
-              }}
-              onClick={(event) => event.stopPropagation()}
-              className={`absolute top-0 h-[6px] w-[38%] rounded-full bg-[#555555] ${
-                isDragging ? "cursor-grabbing" : "cursor-grab"
-              }`}
+              className="absolute left-0 top-0 h-full rounded-full bg-[#555555] transition-transform duration-300 ease-out"
               style={{
-                left: `${scrollProgress * 62}%`,
-                transition: isDragging ? "none" : "left 100ms ease-out",
+                width: `${PROGRESS_THUMB_WIDTH}%`,
+                transform: `translateX(${
+                  scrollProgress * (100 / PROGRESS_THUMB_WIDTH - 1) * 100
+                }%)`,
               }}
             />
           </div>

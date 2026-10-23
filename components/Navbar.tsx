@@ -8,24 +8,16 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
+    { name: "Service", href: "/services" },
     { name: "Blog", href: "/blog" },
   ];
 
-  // =========================================================
-  // CONTACT BUTTON IMAGE
-  // =========================================================
   const contactButtonImage =
     pathname === "/contact"
       ? "/contact-button-active.png"
@@ -34,74 +26,69 @@ export const Navbar = () => {
   return (
     <nav
       className="
-        fixed
-        left-0
-        top-0
-        z-[1000]
+        fixed left-0 top-0 z-[1000]
         w-full
-        border-b
-        border-white/10
-        bg-[rgba(243,238,238,0.28)]
+        border-b border-white/10
+        bg-[rgba(2,39,100,0.74)]
         backdrop-blur-xl
         shadow-[0_4px_30px_rgba(0,0,0,0.15)]
       "
     >
-      {/* =========================================================
-          NAVBAR CONTAINER
-      ========================================================= */}
+      {/* LOGO — ALWAYS FLUSH WITH THE SCREEN'S LEFT EDGE */}
+      <Link
+        href="/"
+        onClick={closeMenu}
+        className="
+          absolute left-0 top-0 z-20
+          flex h-[95px] w-[328px]
+          items-center justify-center
+          bg-[rgba(217,217,217,1)]
+
+          max-[820px]:h-[70px]
+          max-[820px]:w-[240px]
+
+          max-[480px]:h-[65px]
+          max-[480px]:w-[200px]
+        "
+      >
+        <img
+          src="/logo.png"
+          alt="Legacy Leaders"
+          className="
+            h-[90px] w-auto max-w-[95%]
+            object-contain
+
+            max-[820px]:h-[60px]
+            max-[480px]:h-[55px]
+          "
+        />
+      </Link>
+
+      {/* NAVBAR CONTENT */}
       <div
         className="
-          mx-auto
-          flex
-          h-[95px]
+          relative mx-auto
+          flex h-[95px]
           max-w-[1300px]
-          items-center
-          justify-between
+          items-center justify-between
           px-8
 
           max-[820px]:h-[70px]
+          max-[820px]:px-6
 
           max-[480px]:h-[65px]
           max-[480px]:px-4
         "
       >
-        {/* =======================================================
-            LOGO
-        ======================================================= */}
-        <Link
-          href="/"
-          onClick={closeMenu}
+        {/* DESKTOP NAVIGATION */}
+        <ul
           className="
-            flex
-            items-center
-            -ml-6
-
-            max-[820px]:ml-0
+            absolute left-1/2
+            flex -translate-x-1/2
+            items-center gap-1
+            max-[820px]:hidden
           "
         >
-          <div className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="Legacy Leaders"
-              className="
-                h-[90px]
-                w-auto
-                object-contain
-
-                max-[820px]:h-[50px]
-                max-[480px]:h-[45px]
-              "
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
-            />
-          </div>
-        </Link>
-
-        {/* =======================================================
-            DESKTOP NAVIGATION
-        ======================================================= */}
-        <ul className="flex items-center gap-5 max-[820px]:hidden">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -110,33 +97,27 @@ export const Navbar = () => {
                 <Link
                   href={link.href}
                   className={`
-                    relative
-                    inline-flex
+                    relative inline-flex
                     items-center
-                    px-4
-                    py-2
-                    text-[15px]
-                    font-medium
-                    tracking-wide
-                    transition-all
-                    duration-300
+                    px-3 py-2
+                    text-[16px]
+                    font-medium tracking-wide
+                    transition-colors duration-300
 
                     ${
                       isActive
                         ? `
-                          !text-[#003896]
-
+                          !text-white
                           after:absolute
                           after:bottom-0
-                          after:left-4
-                          after:right-4
-                          after:h-[2px]
-                          after:rounded-full
-                          after:bg-[#003896]
+                          after:left-3
+                          after:right-3
+                          after:h-[1px]
+                          after:bg-white
                         `
                         : `
-                          !text-black
-                          hover:!text-[#003896]
+                          !text-white/60
+                          hover:!text-white
                         `
                     }
                   `}
@@ -148,25 +129,16 @@ export const Navbar = () => {
           })}
         </ul>
 
-        {/* =========================================================
-            DESKTOP CONTACT BUTTON
-        ========================================================= */}
-        <div className="max-[820px]:hidden">
+        {/* DESKTOP CONTACT BUTTON */}
+        <div className="ml-auto max-[820px]:hidden">
           <Link
             href="/contact"
             aria-label="Contact"
             onClick={closeMenu}
             className="
-              block
-              h-[50px]
-              w-[161px]
-              overflow-hidden
-              rounded-[58px]
-
-              transition-all
-              duration-300
-              ease-out
-
+              block h-[50px] w-[161px]
+              overflow-hidden rounded-[58px]
+              transition-transform duration-300
               hover:scale-[1.02]
             "
           >
@@ -175,105 +147,69 @@ export const Navbar = () => {
               alt="Contact"
               width={161}
               height={50}
-              className="
-                block
-                h-[50px]
-                w-[161px]
-                object-fill
-              "
+              className="block h-full w-full object-fill"
             />
           </Link>
         </div>
 
-        {/* =========================================================
-            MOBILE HAMBURGER
-        ========================================================= */}
+        {/* MOBILE HAMBURGER */}
         <button
           type="button"
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           className="
-            hidden
-            flex-col
-            gap-[5px]
-            rounded-md
-            p-2
-
+            ml-auto hidden
+            flex-col gap-[5px]
+            rounded-md p-2
             max-[820px]:flex
           "
         >
-          {/* Bar 1 */}
           <span
             className={`
-              h-[2.5px]
-              w-7
-              rounded-full
-              bg-white
-              transition-all
-              duration-300
-
+              h-[2.5px] w-7 rounded-full
+              bg-white transition-all duration-300
               ${isOpen ? "translate-y-[7.5px] rotate-45" : ""}
             `}
           />
 
-          {/* Bar 2 */}
           <span
             className={`
-              h-[2.5px]
-              w-7
-              rounded-full
-              bg-white
-              transition-all
-              duration-300
-
+              h-[2.5px] w-7 rounded-full
+              bg-white transition-all duration-300
               ${isOpen ? "opacity-0" : "opacity-100"}
             `}
           />
 
-          {/* Bar 3 */}
           <span
             className={`
-              h-[2.5px]
-              w-7
-              rounded-full
-              bg-white
-              transition-all
-              duration-300
-
+              h-[2.5px] w-7 rounded-full
+              bg-white transition-all duration-300
               ${isOpen ? "-translate-y-[7.5px] -rotate-45" : ""}
             `}
           />
         </button>
       </div>
 
-      {/* =========================================================
-          MOBILE MENU
-      ========================================================= */}
+      {/* MOBILE MENU */}
       <div
         className={`
-          fixed
-          left-0
-          top-[70px]
-          w-full
-
-          border-b
-          border-white/10
-
-          bg-[rgba(60,60,60,0.28)]
+          fixed left-0 top-[95px]
+          z-10 w-full
+          border-b border-white/10
+          bg-[rgba(2,39,100,0.96)]
           backdrop-blur-xl
-
           shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+          transition-transform duration-300
 
-          transition-transform
-          duration-300
-
+          max-[820px]:top-[70px]
           max-[480px]:top-[65px]
+          min-[821px]:hidden
 
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        <div className="bg-[rgba(60,60,60,0.28)] p-6 max-[480px]:p-5">
+        <div className="p-6 max-[480px]:p-5">
           <ul className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -284,31 +220,25 @@ export const Navbar = () => {
                     href={link.href}
                     onClick={closeMenu}
                     className={`
-                      relative
-                      block
-                      px-4
-                      py-3
-                      text-lg
-                      font-medium
-                      transition-all
-                      duration-300
+                      relative block
+                      px-4 py-3
+                      text-base font-medium
+                      transition-colors duration-300
 
                       ${
                         isActive
                           ? `
-                            !text-[#003896]
-
+                            !text-white
                             after:absolute
                             after:bottom-1
                             after:left-4
                             after:right-4
                             after:h-[2px]
-                            after:rounded-full
-                            after:bg-[#003896]
+                            after:bg-white
                           `
                           : `
-                            !text-white
-                            hover:!text-[#003896]
+                            !text-white/70
+                            hover:!text-white
                           `
                       }
                     `}
@@ -319,25 +249,16 @@ export const Navbar = () => {
               );
             })}
 
-            {/* =====================================================
-                MOBILE CONTACT BUTTON
-            ===================================================== */}
+            {/* MOBILE CONTACT BUTTON */}
             <li className="mt-4">
               <Link
                 href="/contact"
                 onClick={closeMenu}
                 aria-label="Contact"
                 className="
-                  block
-                  h-[50px]
-                  w-[161px]
-                  overflow-hidden
-                  rounded-[58px]
-
-                  transition-all
-                  duration-300
-                  ease-out
-
+                  block h-[50px] w-[161px]
+                  overflow-hidden rounded-[58px]
+                  transition-transform duration-300
                   hover:scale-[1.02]
                 "
               >
@@ -346,12 +267,7 @@ export const Navbar = () => {
                   alt="Contact"
                   width={161}
                   height={50}
-                  className="
-                    block
-                    h-[50px]
-                    w-[161px]
-                    object-fill
-                  "
+                  className="block h-full w-full object-fill"
                 />
               </Link>
             </li>
